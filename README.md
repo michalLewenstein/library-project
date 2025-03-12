@@ -18,16 +18,17 @@
 ## התקנה 💻
 1. **שכפול הריפוזיטורי**:
    ```bash
-   git clone https://github.com/YourUsername/LibraryProject.git
-   cd LibraryProject
+   git clone https://github.com/michalLewenstein/library-project.git
 התקנת התלויות (ל-React):
 
 npm install
 
 הרצת הפרויקט:
+
 צד לקוח:
 
 npm run dev
+
 צד שרת:
 
 mvn spring-boot:run
