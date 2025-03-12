@@ -1,0 +1,1191 @@
+2024-11-14 11:49:48.042089+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (USERS: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."USERS"("ID","EMAIL","NAME","PASSWORD","WRITER")VALUES(?,?,?,?,?) [22018-224]
+2024-11-14 11:49:48.056705+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (USERS: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."USERS"("ID","EMAIL","NAME","PASSWORD","WRITER")VALUES(?,?,?,?,?) [22018-224]
+2024-12-15 02:59:00.730350+02:00 jdbc[34]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DATA_OF_CHAPTER CHARACTER VARYING(255)": "'sdftghjjhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh... (348)"; SQL statement:
+insert into chapter (author_id,book_id,chapter_number,data_of_chapter,date,id) values (?,?,?,?,?,?) [22001-224]
+2024-12-15 02:59:20.326300+02:00 jdbc[34]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DATA_OF_CHAPTER CHARACTER VARYING(255)": "'mnhjfyfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff... (295)"; SQL statement:
+insert into chapter (author_id,book_id,chapter_number,data_of_chapter,date,id) values (?,?,?,?,?,?) [22001-224]
+2024-12-16 21:17:53.694257+02:00 jdbc[73]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "RESPONSE CHARACTER VARYING(255)": "'jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj... (472)"; SQL statement:
+insert into response (book_id,date_of_response,name,response,score,id) values (?,?,?,?,?,?) [22001-224]
+2024-12-16 21:18:18.120099+02:00 jdbc[73]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "RESPONSE CHARACTER VARYING(255)": "'nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn... (295)"; SQL statement:
+insert into response (book_id,date_of_response,name,response,score,id) values (?,?,?,?,?,?) [22001-224]
+2024-12-16 21:19:27.080854+02:00 jdbc[73]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "RESPONSE CHARACTER VARYING(255)": "'lllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllll... (463)"; SQL statement:
+insert into response (book_id,date_of_response,name,response,score,id) values (?,?,?,?,?,?) [22001-224]
+2024-12-17 05:38:41.001372+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "U&'\\05d0\\05e1\\05ea\\05e8 \\05e0\\05d5\\05dc\\05d3\\05d4 \\05d1\\05db\\05e4\\05e8 \\05e7\\05d... (462)"; SQL statement:
+insert into book (auther_id,author_id,category_id,date_out,description,favorite_book_id,first_chapter,light_or_heavy,num_of_chapters,open_or_close,summary,title,why_no,why_yes,id) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) [22001-224]
+2024-12-17 05:39:12.349252+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "U&'\\05d0\\05e1\\05ea\\05e8 \\05e0\\05d5\\05dc\\05d3\\05d4 \\05d1\\05db\\05e4\\05e8 \\05e7\\05d... (462)"; SQL statement:
+insert into book (auther_id,author_id,category_id,date_out,description,favorite_book_id,first_chapter,light_or_heavy,num_of_chapters,open_or_close,summary,title,why_no,why_yes,id) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) [22001-224]
+2024-12-17 06:01:16.390004+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]AUTHER"; expected "ALTER, ANALYZE"; SQL statement:
+AUTHER [42001-224]
+2024-12-17 06:10:23.067068+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM CATEGORY \000d\000aINSERT [*]INTO CATEGORY (ID, NAME)\000d\000aVALUES\000d\000a   \000d\000a    (6, 'מדע בדיוני'),\000d\000a    (7, 'היסטוריה'),\000d\000a    (8, 'פסיכולוגיה'),\000d\000a    (9, 'אומנות')"; SQL statement:
+SELECT * FROM CATEGORY 
+INSERT INTO CATEGORY (ID, NAME)
+VALUES
+   
+    (6, 'מדע בדיוני'),
+    (7, 'היסטוריה'),
+    (8, 'פסיכולוגיה'),
+    (9, 'אומנות') [42000-224]
+2024-12-17 06:13:30.683401+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column count does not match; SQL statement:
+INSERT INTO CATEGORY ( NAME)
+VALUES
+    ( ' מתח'),
+    ( 'מדע בדיוני'),
+    ( 'היסטוריה'),
+    ( 'פסיכולוגיה'),
+    ( 'אומנות'),
+    ( 'פילוסופיה'),
+    ('מתכונים'),
+    (13, 'טיולים'),
+    (14, 'בלשנות') [21002-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.command.dml.Insert.doPrepare(Insert.java:295)
+	at org.h2.command.dml.DataChangeStatement.prepare(DataChangeStatement.java:37)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp.query(WebApp.java:1119)
+	at org.h2.server.web.WebApp.process(WebApp.java:245)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:177)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-12-17 06:15:16.296606+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO AUTHOR (ID, NAME)\000d\000aVALUES\000d\000a    (9, 'שירה מאיר'),\000d\000a    (10, 'עמוס עוז'),\000d\000a    (11, 'דורית רביניאן'),\000d\000a    (12, 'גרוסמן דוד'),\000d\000a    (13, 'רות אלמגור'),\000d\000a    (14, 'מייקל איינהורן'),\000d\000a    (15, 'א.ב. יהושע'),\000d\000a    (16, 'אסף גברון'),\000d\000a    (17, 'אלי עמיר'),\000d\000a    (18, 'מירה מגן'),\000d\000a    (19, 'גלית דיסטל אטבריאן'),\000d\000a    (20, 'מיכה יוספי'),\000d\000a    (21, 'יעל פינקלשטיין'),\000d\000a    (22, 'איתן חרמון'),\000d\000a    (23, 'איתן רותם'),\000d\000a    (24, 'אילנה דיין'),\000d\000a    (25, 'יוסף מלצר'),\000d\000a    (26, 'נילי מירסקי'),\000d\000a    (27, 'רבקה מרים'),\000d\000a    (28, 'אורית רוזן'),\000d\000a    (29, 'יצחק ברוק'),\000d\000a    (30, 'שחר רינת'),\000d\000a    (31, 'דרור בורשטין'),\000d\000a    (32, 'אלעד אברהם'),\000d\000a    (33, 'דורון נבות'),\000d\000a    (34, 'רות קלדרון'),\000d\000a    (35, 'אורי ניסן גנסין'),\000d\000a    (36, 'ציפי שוחט'),\000d\000a    (37, 'אליהו הכהן קוק'),\000d\000a    (38, 'יוסף חיים ברנר'),\000d\000a    (39, 'אורי בר לב'),\000d\000a    (40, 'עמי גדליה'),\000d\000a    (41, 'אבנר זכרוני'),\000d\000a    (42, 'אוריאל אופק'),\000d\000a    (43, 'אריה סתיו'),\000d\000a    (44, 'אמנון ז'קונט'),\000d\000a    (45, 'מרדכי שאולוף'),\000d\000a    (46, 'תמר גטר[*]');"; SQL statement:
+INSERT INTO AUTHOR (ID, NAME)
+VALUES
+    (9, 'שירה מאיר'),
+    (10, 'עמוס עוז'),
+    (11, 'דורית רביניאן'),
+    (12, 'גרוסמן דוד'),
+    (13, 'רות אלמגור'),
+    (14, 'מייקל איינהורן'),
+    (15, 'א.ב. יהושע'),
+    (16, 'אסף גברון'),
+    (17, 'אלי עמיר'),
+    (18, 'מירה מגן'),
+    (19, 'גלית דיסטל אטבריאן'),
+    (20, 'מיכה יוספי'),
+    (21, 'יעל פינקלשטיין'),
+    (22, 'איתן חרמון'),
+    (23, 'איתן רותם'),
+    (24, 'אילנה דיין'),
+    (25, 'יוסף מלצר'),
+    (26, 'נילי מירסקי'),
+    (27, 'רבקה מרים'),
+    (28, 'אורית רוזן'),
+    (29, 'יצחק ברוק'),
+    (30, 'שחר רינת'),
+    (31, 'דרור בורשטין'),
+    (32, 'אלעד אברהם'),
+    (33, 'דורון נבות'),
+    (34, 'רות קלדרון'),
+    (35, 'אורי ניסן גנסין'),
+    (36, 'ציפי שוחט'),
+    (37, 'אליהו הכהן קוק'),
+    (38, 'יוסף חיים ברנר'),
+    (39, 'אורי בר לב'),
+    (40, 'עמי גדליה'),
+    (41, 'אבנר זכרוני'),
+    (42, 'אוריאל אופק'),
+    (43, 'אריה סתיו'),
+    (44, 'אמנון ז'קונט'),
+    (45, 'מרדכי שאולוף'),
+    (46, 'תמר גטר'); [42000-224]
+2024-12-17 06:16:02.310849+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "AUTHOR" not found; SQL statement:
+INSERT INTO AUTHOR (ID, NAME)
+VALUES
+    (9, 'שירה מאיר'),
+    (10, 'עמוס עוז'),
+    (11, 'דורית רביניאן'),
+    (12, 'גרוסמן דוד'),
+    (13, 'רות אלמגור'),
+    (14, 'מייקל איינהורן'),
+    (15, 'א.ב. יהושע'),
+    (16, 'אסף גברון'),
+    (17, 'אלי עמיר'),
+    (18, 'מירה מגן'),
+    (19, 'גלית דיסטל אטבריאן'),
+    (20, 'מיכה יוספי'),
+    (21, 'יעל פינקלשטיין'),
+    (22, 'איתן חרמון'),
+    (23, 'איתן רותם'),
+    (24, 'אילנה דיין'),
+    (25, 'יוסף מלצר'),
+    (26, 'נילי מירסקי'),
+    (27, 'רבקה מרים'),
+    (28, 'אורית רוזן'),
+    (29, 'יצחק ברוק'),
+    (30, 'שחר רינת'),
+    (31, 'דרור בורשטין'),
+    (32, 'אלעד אברהם'),
+    (33, 'דורון נבות'),
+    (34, 'רות קלדרון'),
+    (35, 'אורי ניסן גנסין'),
+    (36, 'ציפי שוחט'),
+    (37, 'אליהו הכהן קוק'),
+    (38, 'יוסף חיים ברנר'),
+    (39, 'אורי בר לב'),
+    (40, 'עמי גדליה'),
+    (41, 'אבנר זכרוני'),
+    (42, 'אוריאל אופק'),
+    (43, 'אריה סתיו') [42102-224]
+2024-12-17 06:16:20.603932+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO AUTHER (ID, NAME)\000d\000aVALUES\000d\000a    (9, 'שירה מאיר'),\000d\000a    (10, 'עמוס עוז'),\000d\000a    (11, 'דורית רביניאן'),\000d\000a    (12, 'גרוסמן דוד'),\000d\000a    (13, 'רות אלמגור'),\000d\000a    (14, 'מייקל איינהורן'),\000d\000a    (15, 'א.ב. יהושע'),\000d\000a    (16, 'אסף גברון'),\000d\000a    (17, 'אלי עמיר'),\000d\000a    (18, 'מירה מגן'),\000d\000a    (19, 'גלית דיסטל אטבריאן'),\000d\000a    (20, 'מיכה יוספי'),\000d\000a    (21, 'יעל פינקלשטיין'),\000d\000a    (22, 'איתן חרמון'),\000d\000a    (23, 'איתן רותם'),\000d\000a    (24, 'אילנה דיין'),\000d\000a    (25, 'יוסף מלצר'),\000d\000a    (26, 'נילי מירסקי'),\000d\000a    (27, 'רבקה מרים'),\000d\000a    (28, 'אורית רוזן'),\000d\000a    (29, 'יצחק ברוק'),\000d\000a    (30, 'שחר רינת'),\000d\000a    (31, 'דרור בורשטין'),\000d\000a    (32, 'אלעד אברהם'),\000d\000a    (33, 'דורון נבות'),\000d\000a    (34, 'רות קלדרון'),\000d\000a    (35, 'אורי ניסן גנסין'),\000d\000a    (36, 'ציפי שוחט'),\000d\000a    (37, 'אליהו הכהן קוק'),\000d\000a    (38, 'יוסף חיים ברנר'),\000d\000a    (39, 'אורי בר לב'),\000d\000a    (40, 'עמי גדליה'),\000d\000a    (41, 'אבנר זכרוני'),\000d\000a    (42, 'אוריאל אופק'),\000d\000a    (43, 'אריה סתיו'),[*]"; expected "ROW (, (, DEFAULT, INTERSECTS (, NOT, EXISTS, UNIQUE, INTERSECTS"; SQL statement:
+INSERT INTO AUTHER (ID, NAME)
+VALUES
+    (9, 'שירה מאיר'),
+    (10, 'עמוס עוז'),
+    (11, 'דורית רביניאן'),
+    (12, 'גרוסמן דוד'),
+    (13, 'רות אלמגור'),
+    (14, 'מייקל איינהורן'),
+    (15, 'א.ב. יהושע'),
+    (16, 'אסף גברון'),
+    (17, 'אלי עמיר'),
+    (18, 'מירה מגן'),
+    (19, 'גלית דיסטל אטבריאן'),
+    (20, 'מיכה יוספי'),
+    (21, 'יעל פינקלשטיין'),
+    (22, 'איתן חרמון'),
+    (23, 'איתן רותם'),
+    (24, 'אילנה דיין'),
+    (25, 'יוסף מלצר'),
+    (26, 'נילי מירסקי'),
+    (27, 'רבקה מרים'),
+    (28, 'אורית רוזן'),
+    (29, 'יצחק ברוק'),
+    (30, 'שחר רינת'),
+    (31, 'דרור בורשטין'),
+    (32, 'אלעד אברהם'),
+    (33, 'דורון נבות'),
+    (34, 'רות קלדרון'),
+    (35, 'אורי ניסן גנסין'),
+    (36, 'ציפי שוחט'),
+    (37, 'אליהו הכהן קוק'),
+    (38, 'יוסף חיים ברנר'),
+    (39, 'אורי בר לב'),
+    (40, 'עמי גדליה'),
+    (41, 'אבנר זכרוני'),
+    (42, 'אוריאל אופק'),
+    (43, 'אריה סתיו'), [42001-224]
+2024-12-17 06:22:20.443558+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "DATEOUT" not found; SQL statement:
+INSERT INTO BOOK (TITLE, DATEOUT, NUMOFCHAPTERS, DESCRIPTION, FIRSTCHAPTER)
+VALUES
+    ('מלחמות העולם – תקופות ומגמות', '2023-11-20', 12, 'ניתוח מעמיק של מלחמות לאורך ההיסטוריה, תיאורי קרבות והשפעתן על החברה.', 
+    'היסטוריה של מלחמות מתחילה לא במאה העשרים אלא בתקופות מוקדמות יותר, כאשר האינטרסים הלאומיים הראשונים קיבלו ביטוי במאבקים קרקעיים על שטחים ואדמות.'),
+    
+    ('המוח והקשרים הנפשיים', '2023-12-05', 10, 'סקירה של הביולוגיה של המוח ותפקידיו השונים ביצירת תהליכים קוגניטיביים.', 
+    'המוח האנושי נחשב כמודל מורכב של רשתות עצביות המתחברות זו לזו על ידי מיליוני סינפסות. הוא משתף פעולה עם מערכות שונות כמו מערכת העצבים המרכזית וההיקפית, מה שמאפשר שליטה מוטורית, זיכרון, תפקוד רגשי ותחושתי.'),
+
+    ('יסודות אלקטרוניקה והנדסת חשמל', '2023-11-30', 15, 'סקירה יסודית של אלמנטים בסיסיים בתחום החשמל והאלקטרוניקה.', 
+    'תורת החשמל מתחילה בהבנת הזרם החשמלי, מתח והספק. פרק זה מתאר את יסודות החשמל, כולל התאוריה הבסיסית של זרם ישר (DC) וחוקי קירכוף החשמליים (KCL, KVL).'),
+
+    ('אקולוגיה של מדבריות', '2023-12-10', 8, 'סקירה של הצומח והחי במדבריות, תהליכים סביבתיים וההתמודדות עם תנאי המדבר הקשים.', 
+    'המדבריות מהוות בית טבעי לסביבה ייחודית עם בעלי חיים וצמחים אשר פיתחו הסתגלויות יוצאות דופן לצרכי הישרדותם בתנאים קשים.'),
+
+    ('מולקולות, קשרים והגדרות', '2023-12-07', 9, 'סקירה מעמיקה של יסודות הכימיה האורגנית, המבנה והמולקולות המרכיבות חומרים טבעיים וסינתטיים.', 
+    'הכימיה האורגנית עוסקת בקשרים בין אטומים ובניית תרכובות שונות מחומרים אורגניים. בפרק הראשון, נבחנים יסודות הקשרים הכימיים של פחמן, היבטים כמו מבנה, התמרות וזיקה מולקולרית.') [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp.query(WebApp.java:1119)
+	at org.h2.server.web.WebApp.process(WebApp.java:245)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:177)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-12-17 06:23:19.975401+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "NSERT INTO BOOK (TITLE, DATEOUT, NUMOFCHAPTERS, DESCRIPTION, FIRSTCHAPTER, AUTHER_ID)\000d\000aVALUES\000d\000a    ('שיחות עם אלוהים', '2023-12-15', 12, 'ספר דיאלוגי המציע מסר רוחני עמוק על משמעות החיים והיחס לאלוהים.', \000d\000a    'הספר נפתח עם דיאלוג אינטימי שבו הגיבור משתף בהתלבטויות קיומיות רבות ומקבל תשובות פילוסופיות ורוחניות ממקור עליון.', 1),\000d\000a\000d\000a    ('שירי אהבה מהתנ""ך', '2023-12-20', 8, 'אסופה של שירים קלאסיים מתוך ספרי התנ""ך המגוללים סיפורים רגשיים ואמוניים.', \000d\000a    'השיר הראשון עוסק באהבה עזה לדמות אלוהית ובקשר האישי למעמקי הלב.', 3),\000d\000a\000d\000a    ('תורת הקבלה – יסודות והבנות', '2023-11-25', 15, 'סקירה מקיפה של יסודות הקבלה וההתפתחות הפילוסופית לאורך השנים.', \000d\000a    'פרק ראשון עוסק בקשר בין גוף לנפש, ומסביר את עקרונות תורת הקבלה כדרך להבנת הטבע הרוחני.', 4),\000d\000a\000d\000a    ('היסטוריה יהודית – שלבים בהתפתחות האומה', '2023-12-10', 20, 'ספר עוסק בפרקים מרכזיים בהיסטוריה היהודית, מיציאת מצרים ועד ימינו.', \000d\000a    'הפרק הראשון מתאר את המצור הראשון על ירושלים ואת ההתמודדות הקשה של העם היהודי במהלך המרד הגדול.', 6),\000d\000a\000d\000a    ('מדע, רוחניות ותורת היחסות', '2023-11-30', 18, 'מחקר אינטלקטואלי שמבקש לחבר בין עולמות המדע והאמונה.', \000d\000a    'הפרק הראשון סוקר את תורת היחסות של איינשטיין ומבצע חיבור למציאות רוחנית מתקדמת של הבנה עילאית.', 15),\000d\000a\000d\000a    ('תקשורת בין תרבויות', '2023-12-01', 10, 'ספר שמסביר את הקשרים בין תרבויות שונות ואת אתגרי התקשורת הבין-תרבותית.', \000d\000a    'פרק ראשון עוסק בעקרונות הקשרים הבין-תרבותיים, עם דגש על הפולקלור והמנהגים השונים המעצבים כל תרבות.', 16),\000d\000a\000d\000a    ('סיפורי משלים מיתולוגיים', '2023-12-05', 12, 'אוסף משלים מיתולוגיים עתיקים עם מסרים מוסריים וערכיים.', \000d\000a    'הפרק הראשון כולל משלים על אלים ואנשים, בהם מדגים כיצד תכונות אופי משפיעות על גורל דמויות המיתולוגיה.', 17),\000d\000a\000d\000a    ('מרדכי אנילביץ' [*]– חיים ומורשת', '2023-11-28', 14, 'סיפור חיים מרגש של מנהיג מרד גטו וורשה, עם התמקדות במאבק ובגבורה.', \000d\000a    'הפרק הראשון מתאר את נעוריו של מרדכי ואת המעבר לתוך עולם המחתרת והכנה למרד.', 21),\000d\000a\000d\000a    ('צמיחה אישית והעצמה רוחנית', '2023-12-08', 11, 'ספר העוסק בתהליכי צמיחה והתפתחות אישית בדרך רוחנית.', \000d\000a    'הפרק הראשון עוסק בהגדרת העצמה אישית ומדגים כיצד תרגולים רוחניים מסייעים לצמיחה פנימית.', 36),\000d\000a\000d\000a    ('תרבות המערב והשפעתה על העולם', '2023-12-12', 18, 'סקירה של התרבות המערבית לאורך ההיסטוריה והשפעתה על תחומים שונים כמו אמנות, פילוסופיה וכלכלה.', \000d\000a    'הפרק הראשון מנתח את מקורות המהפכה התעשייתית ואת ההשלכות הכלכליות והחברתיות שהביא עמו.', 40);"; SQL statement:
+NSERT INTO BOOK (TITLE, DATEOUT, NUMOFCHAPTERS, DESCRIPTION, FIRSTCHAPTER, AUTHER_ID)
+VALUES
+    ('שיחות עם אלוהים', '2023-12-15', 12, 'ספר דיאלוגי המציע מסר רוחני עמוק על משמעות החיים והיחס לאלוהים.', 
+    'הספר נפתח עם דיאלוג אינטימי שבו הגיבור משתף בהתלבטויות קיומיות רבות ומקבל תשובות פילוסופיות ורוחניות ממקור עליון.', 1),
+
+    ('שירי אהבה מהתנ"ך', '2023-12-20', 8, 'אסופה של שירים קלאסיים מתוך ספרי התנ"ך המגוללים סיפורים רגשיים ואמוניים.', 
+    'השיר הראשון עוסק באהבה עזה לדמות אלוהית ובקשר האישי למעמקי הלב.', 3),
+
+    ('תורת הקבלה – יסודות והבנות', '2023-11-25', 15, 'סקירה מקיפה של יסודות הקבלה וההתפתחות הפילוסופית לאורך השנים.', 
+    'פרק ראשון עוסק בקשר בין גוף לנפש, ומסביר את עקרונות תורת הקבלה כדרך להבנת הטבע הרוחני.', 4),
+
+    ('היסטוריה יהודית – שלבים בהתפתחות האומה', '2023-12-10', 20, 'ספר עוסק בפרקים מרכזיים בהיסטוריה היהודית, מיציאת מצרים ועד ימינו.', 
+    'הפרק הראשון מתאר את המצור הראשון על ירושלים ואת ההתמודדות הקשה של העם היהודי במהלך המרד הגדול.', 6),
+
+    ('מדע, רוחניות ותורת היחסות', '2023-11-30', 18, 'מחקר אינטלקטואלי שמבקש לחבר בין עולמות המדע והאמונה.', 
+    'הפרק הראשון סוקר את תורת היחסות של איינשטיין ומבצע חיבור למציאות רוחנית מתקדמת של הבנה עילאית.', 15),
+
+    ('תקשורת בין תרבויות', '2023-12-01', 10, 'ספר שמסביר את הקשרים בין תרבויות שונות ואת אתגרי התקשורת הבין-תרבותית.', 
+    'פרק ראשון עוסק בעקרונות הקשרים הבין-תרבותיים, עם דגש על הפולקלור והמנהגים השונים המעצבים כל תרבות.', 16),
+
+    ('סיפורי משלים מיתולוגיים', '2023-12-05', 12, 'אוסף משלים מיתולוגיים עתיקים עם מסרים מוסריים וערכיים.', 
+    'הפרק הראשון כולל משלים על אלים ואנשים, בהם מדגים כיצד תכונות אופי משפיעות על גורל דמויות המיתולוגיה.', 17),
+
+    ('מרדכי אנילביץ' – חיים ומורשת', '2023-11-28', 14, 'סיפור חיים מרגש של מנהיג מרד גטו וורשה, עם התמקדות במאבק ובגבורה.', 
+    'הפרק הראשון מתאר את נעוריו של מרדכי ואת המעבר לתוך עולם המחתרת והכנה למרד.', 21),
+
+    ('צמיחה אישית והעצמה רוחנית', '2023-12-08', 11, 'ספר העוסק בתהליכי צמיחה והתפתחות אישית בדרך רוחנית.', 
+    'הפרק הראשון עוסק בהגדרת העצמה אישית ומדגים כיצד תרגולים רוחניים מסייעים לצמיחה פנימית.', 36),
+
+    ('תרבות המערב והשפעתה על העולם', '2023-12-12', 18, 'סקירה של התרבות המערבית לאורך ההיסטוריה והשפעתה על תחומים שונים כמו אמנות, פילוסופיה וכלכלה.', 
+    'הפרק הראשון מנתח את מקורות המהפכה התעשייתית ואת ההשלכות הכלכליות והחברתיות שהביא עמו.', 40); [42000-224]
+2024-12-17 06:24:04.642502+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "INSERT INTO BOOK (TITLE, DATEOUT, NUMOFCHAPTERS, DESCRIPTION, FIRSTCHAPTER, AUTHER_ID)\000d\000aVALUES\000d\000a    ('שיחות עם אלוהים', '2023-12-15', 12, 'ספר דיאלוגי המציע מסר רוחני עמוק על משמעות החיים והיחס לאלוהים.',\000d\000a    'הספר נפתח עם דיאלוג אינטימי שבו הגיבור משתף בהתלבטויות קיומיות רבות ומקבל תשובות פילוסופיות ורוחניות ממקור עליון.', 1),\000d\000a\000d\000a    ('שירי אהבה מהתנ""ך', '2023-12-20', 8, 'אסופה של שירים קלאסיים מתוך ספרי התנ""ך המגוללים סיפורים רגשיים ואמוניים.',\000d\000a    'השיר הראשון עוסק באהבה עזה לדמות אלוהית ובקשר האישי למעמקי הלב.', 3),\000d\000a\000d\000a    ('תורת הקבלה – יסודות והבנות', '2023-11-25', 15, 'סקירה מקיפה של יסודות הקבלה וההתפתחות הפילוסופית לאורך השנים.',\000d\000a    'פרק ראשון עוסק בקשר בין גוף לנפש, ומסביר את עקרונות תורת הקבלה כדרך להבנת הטבע הרוחני.', 4),\000d\000a\000d\000a    ('היסטוריה יהודית – שלבים בהתפתחות האומה', '2023-12-10', 20, 'ספר עוסק בפרקים מרכזיים בהיסטוריה היהודית, מיציאת מצרים ועד ימינו.',\000d\000a    'הפרק הראשון מתאר את המצור הראשון על ירושלים ואת ההתמודדות הקשה של העם היהודי במהלך המרד הגדול.', 6),\000d\000a\000d\000a    ('מדע, רוחניות ותורת היחסות', '2023-11-30', 18, 'מחקר אינטלקטואלי שמבקש לחבר בין עולמות המדע והאמונה.',\000d\000a    'הפרק הראשון סוקר את תורת היחסות של איינשטיין ומבצע חיבור למציאות רוחנית מתקדמת של הבנה עילאית.', 15),\000d\000a\000d\000a    ('תקשורת בין תרבויות', '2023-12-01', 10, 'ספר שמסביר את הקשרים בין תרבויות שונות ואת אתגרי התקשורת הבין-תרבותית.',\000d\000a    'פרק ראשון עוסק בעקרונות הקשרים הבין-תרבותיים, עם דגש על הפולקלור והמנהגים השונים המעצבים כל תרבות.', 16),\000d\000a\000d\000a    ('סיפורי משלים מיתולוגיים', '2023-12-05', 12, 'אוסף משלים מיתולוגיים עתיקים עם מסרים מוסריים וערכיים.',\000d\000a    'הפרק הראשון כולל משלים על אלים ואנשים, בהם מדגים כיצד תכונות אופי משפיעות על גורל דמויות המיתולוגיה.', 17),\000d\000a\000d\000a    ('מרדכי אנילביץ' [*]– חיים ומורשת', '2023-11-28', 14, 'סיפור חיים מרגש של מנהיג מרד גטו וורשה, עם התמקדות במאבק ובגבורה.',\000d\000a    'הפרק הראשון מתאר את נעוריו של מרדכי ואת המעבר לתוך עולם המחתרת והכנה למרד.', 21),\000d\000a\000d\000a    ('צמיחה אישית והעצמה רוחנית', '2023-12-08', 11, 'ספר העוסק בתהליכי צמיחה והתפתחות אישית בדרך רוחנית.',\000d\000a    'הפרק הראשון עוסק בהגדרת העצמה אישית ומדגים כיצד תרגולים רוחניים מסייעים לצמיחה פנימית.', 36),\000d\000a\000d\000a    ('תרבות המערב והשפעתה על העולם', '2023-12-12', 18, 'סקירה של התרבות המערבית לאורך ההיסטוריה והשפעתה על תחומים שונים כמו אמנות, פילוסופיה וכלכלה.',\000d\000a    'הפרק הראשון מנתח את מקורות המהפכה התעשייתית ואת ההשלכות הכלכליות והחברתיות שהביא עמו.', 40);"; SQL statement:
+INSERT INTO BOOK (TITLE, DATEOUT, NUMOFCHAPTERS, DESCRIPTION, FIRSTCHAPTER, AUTHER_ID)
+VALUES
+    ('שיחות עם אלוהים', '2023-12-15', 12, 'ספר דיאלוגי המציע מסר רוחני עמוק על משמעות החיים והיחס לאלוהים.',
+    'הספר נפתח עם דיאלוג אינטימי שבו הגיבור משתף בהתלבטויות קיומיות רבות ומקבל תשובות פילוסופיות ורוחניות ממקור עליון.', 1),
+
+    ('שירי אהבה מהתנ"ך', '2023-12-20', 8, 'אסופה של שירים קלאסיים מתוך ספרי התנ"ך המגוללים סיפורים רגשיים ואמוניים.',
+    'השיר הראשון עוסק באהבה עזה לדמות אלוהית ובקשר האישי למעמקי הלב.', 3),
+
+    ('תורת הקבלה – יסודות והבנות', '2023-11-25', 15, 'סקירה מקיפה של יסודות הקבלה וההתפתחות הפילוסופית לאורך השנים.',
+    'פרק ראשון עוסק בקשר בין גוף לנפש, ומסביר את עקרונות תורת הקבלה כדרך להבנת הטבע הרוחני.', 4),
+
+    ('היסטוריה יהודית – שלבים בהתפתחות האומה', '2023-12-10', 20, 'ספר עוסק בפרקים מרכזיים בהיסטוריה היהודית, מיציאת מצרים ועד ימינו.',
+    'הפרק הראשון מתאר את המצור הראשון על ירושלים ואת ההתמודדות הקשה של העם היהודי במהלך המרד הגדול.', 6),
+
+    ('מדע, רוחניות ותורת היחסות', '2023-11-30', 18, 'מחקר אינטלקטואלי שמבקש לחבר בין עולמות המדע והאמונה.',
+    'הפרק הראשון סוקר את תורת היחסות של איינשטיין ומבצע חיבור למציאות רוחנית מתקדמת של הבנה עילאית.', 15),
+
+    ('תקשורת בין תרבויות', '2023-12-01', 10, 'ספר שמסביר את הקשרים בין תרבויות שונות ואת אתגרי התקשורת הבין-תרבותית.',
+    'פרק ראשון עוסק בעקרונות הקשרים הבין-תרבותיים, עם דגש על הפולקלור והמנהגים השונים המעצבים כל תרבות.', 16),
+
+    ('סיפורי משלים מיתולוגיים', '2023-12-05', 12, 'אוסף משלים מיתולוגיים עתיקים עם מסרים מוסריים וערכיים.',
+    'הפרק הראשון כולל משלים על אלים ואנשים, בהם מדגים כיצד תכונות אופי משפיעות על גורל דמויות המיתולוגיה.', 17),
+
+    ('מרדכי אנילביץ' – חיים ומורשת', '2023-11-28', 14, 'סיפור חיים מרגש של מנהיג מרד גטו וורשה, עם התמקדות במאבק ובגבורה.',
+    'הפרק הראשון מתאר את נעוריו של מרדכי ואת המעבר לתוך עולם המחתרת והכנה למרד.', 21),
+
+    ('צמיחה אישית והעצמה רוחנית', '2023-12-08', 11, 'ספר העוסק בתהליכי צמיחה והתפתחות אישית בדרך רוחנית.',
+    'הפרק הראשון עוסק בהגדרת העצמה אישית ומדגים כיצד תרגולים רוחניים מסייעים לצמיחה פנימית.', 36),
+
+    ('תרבות המערב והשפעתה על העולם', '2023-12-12', 18, 'סקירה של התרבות המערבית לאורך ההיסטוריה והשפעתה על תחומים שונים כמו אמנות, פילוסופיה וכלכלה.',
+    'הפרק הראשון מנתח את מקורות המהפכה התעשייתית ואת ההשלכות הכלכליות והחברתיות שהביא עמו.', 40); [42000-224]
+2024-12-17 06:25:28.406844+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "DATEOUT" not found; SQL statement:
+INSERT INTO BOOK (TITLE, DATEOUT, NUMOFCHAPTERS, DESCRIPTION, FIRSTCHAPTER, AUTHER_ID)
+VALUES
+    ('שיחות עם אלוהים', '2023-12-15', 12, 'ספר דיאלוגי המציע מסר רוחני עמוק על משמעות החיים והיחס לאלוהים.',
+    'הספר נפתח עם דיאלוג אינטימי שבו הגיבור משתף בהתלבטויות קיומיות רבות ומקבל תשובות פילוסופיות ורוחניות ממקור עליון.', 1),
+
+    ('שירי אהבה מהתנ\"ך', '2023-12-20', 8, 'אסופה של שירים קלאסיים מתוך ספרי התנ\"ך המגוללים סיפורים רגשיים ואמוניים.',
+    'השיר הראשון עוסק באהבה עזה לדמות אלוהית ובקשר האישי למעמקי הלב.', 3),
+
+    ('תורת הקבלה – יסודות והבנות', '2023-11-25', 15, 'סקירה מקיפה של יסודות הקבלה וההתפתחות הפילוסופית לאורך השנים.',
+    'פרק ראשון עוסק בקשר בין גוף לנפש, ומסביר את עקרונות תורת הקבלה כדרך להבנת הטבע הרוחני.', 4),
+
+    ('היסטוריה יהודית – שלבים בהתפתחות האומה', '2023-12-10', 20, 'ספר עוסק בפרקים מרכזיים בהיסטוריה היהודית, מיציאת מצרים ועד ימינו.',
+    'הפרק הראשון מתאר את המצור הראשון על ירושלים ואת ההתמודדות הקשה של העם היהודי במהלך המרד הגדול.', 6),
+
+    ('מדע, רוחניות ותורת היחסות', '2023-11-30', 18, 'מחקר אינטלקטואלי שמבקש לחבר בין עולמות המדע והאמונה.',
+    'הפרק הראשון סוקר את תורת היחסות של איינשטיין ומבצע חיבור למציאות רוחנית מתקדמת של הבנה עילאית.', 15),
+
+    ('תקשורת בין תרבויות', '2023-12-01', 10, 'ספר שמסביר את הקשרים בין תרבויות שונות ואת אתגרי התקשורת הבין-תרבותית.',
+    'פרק ראשון עוסק בעקרונות הקשרים הבין-תרבותיים, עם דגש על הפולקלור והמנהגים השונים המעצבים כל תרבות.', 16),
+
+    ('סיפורי משלים מיתולוגיים', '2023-12-05', 12, 'אוסף משלים מיתולוגיים עתיקים עם מסרים מוסריים וערכיים.',
+    'הפרק הראשון כולל משלים על אלים ואנשים, בהם מדגים כיצד תכונות אופי משפיעות על גורל דמויות המיתולוגיה.', 17),
+
+    ('מרדכי אנילביץ'' – חיים ומורשת', '2023-11-28', 14, 'סיפור חיים מרגש של מנהיג מרד גטו וורשה, עם התמקדות במאבק ובגבורה.',
+    'הפרק הראשון מתאר את נעוריו של מרדכי ואת המעבר לתוך עולם המחתרת והכנה למרד.', 21),
+
+    ('צמיחה אישית והעצמה רוחנית', '2023-12-08', 11, 'ספר העוסק בתהליכי צמיחה והתפתחות אישית בדרך רוחנית.',
+    'הפרק הראשון עוסק בהגדרת העצמה אישית ומדגים כיצד תרגולים רוחניים מסייעים לצמיחה פנימית.', 36),
+
+    ('תרבות המערב והשפעתה על העולם', '2023-12-12', 18, 'סקירה של התרבות המערבית לאורך ההיסטוריה והשפעתה על תחומים שונים כמו אמנות, פילוסופיה וכלכלה.',
+    'הפרק הראשון מנתח את מקורות המהפכה התעשייתית ואת ההשלכות הכלכליות והחברתיות שהביא עמו.', 40) [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.table.Table.getColumn(Table.java:759)
+	at org.h2.command.Parser.parseColumn(Parser.java:1190)
+	at org.h2.command.Parser.parseColumnList(Parser.java:1175)
+	at org.h2.command.Parser.parseInsert(Parser.java:1549)
+	at org.h2.command.Parser.parsePrepared(Parser.java:719)
+	at org.h2.command.Parser.parse(Parser.java:592)
+	at org.h2.command.Parser.parse(Parser.java:564)
+	at org.h2.command.Parser.prepareCommand(Parser.java:483)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1345)
+	at org.h2.server.web.WebApp.query(WebApp.java:1143)
+	at org.h2.server.web.WebApp.query(WebApp.java:1119)
+	at org.h2.server.web.WebApp.process(WebApp.java:245)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:177)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-12-17 06:27:57.297197+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "U&'\\05e4\\05ea\\05d5\\05d7' (BOOK: ""OPEN_OR_CLOSE"" BOOLEAN NOT NULL)"; SQL statement:
+INSERT INTO BOOK (TITLE, DATE_OUT, NUM_OF_CHAPTERS, DESCRIPTION, FIRST_CHAPTER, AUTHER_ID, CATEGORY_ID, OPEN_OR_CLOSE, LIGHT_OR_HEAVY, SUMMARY, WHY_YES, WHY_NO)
+VALUES
+    ('שיחות עם אלוהים', '2023-12-15', 12, 'ספר דיאלוגי המציע מסר רוחני עמוק על משמעות החיים והיחס לאלוהים.',
+    'הספר נפתח עם דיאלוג אינטימי שבו הגיבור משתף בהתלבטויות קיומיות.', 1, 4, 'פתוח', 'כבד', 'ספר עמוק על שאלות חיים.', 'כן, הוא עוזר להתפתחות אישית.', 'לא מתאים לחסרי סבלנות'),
+
+    ('שירי אהבה מהתנ"ך', '2023-12-20', 8, 'אסופה של שירים קלאסיים מתוך ספרי התנ"ך.',
+    'השיר הראשון עוסק באהבה עזה לדמות אלוהית ובקשר האישי למעמקי הלב.', 3, 2, 'סגור', 'קל', 'שירים פשוטים עם עומק רב.', 'כן, מספק השראה.', 'לא מתאים לחובבי רומן'),
+
+    ('תורת הקבלה – יסודות והבנות', '2023-11-25', 15, 'סקירה מקיפה על יסודות הקבלה.',
+    'הפרק הראשון מתאר את הקשר בין גוף לנפש.', 4, 5, 'פתוח', 'כבד', 'מדריך מצוין ללימוד קבלה.', 'כן, מספק כלים רוחניים.', 'לא מתאים למתחילים'),
+
+    ('היסטוריה יהודית – שלבים בהתפתחות האומה', '2023-12-10', 20, 'סקירה על פרקים מרכזיים בהיסטוריה היהודית.',
+    'הפרק הראשון מתאר את המצור הראשון על ירושלים.', 6, 7, 'סגור', 'כבד', 'מקור חשוב ללמידה היסטורית.', 'כן, מספק ידע היסטורי מעמיק.', 'לא מתאים למי שמחפש קריאה קלילה'),
+
+    ('צמיחה אישית והעצמה רוחנית', '2023-12-08', 11, 'ספר העוסק בתהליכי צמיחה והתפתחות אישית.',
+    'הפרק הראשון עוסק בהגדרת העצמה אישית.', 36, 9, 'פתוח', 'כבד', 'מדריך לצמיחה פנימית.', 'כן, מתאים למחפשי משמעות.', 'לא מתאים למי שמחפש סיפור עלילתי') [22018-224]
+2024-12-19 16:15:13.149722+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "B1_0.COUNT_SCORE" not found; SQL statement:
+select b1_0.id,a1_0.id,a1_0.name,b1_0.author_id,c1_0.id,c1_0.name,b1_0.count_score,b1_0.date_out,b1_0.description,fb1_0.id,u1_0.id,u1_0.email,u1_0.image,u1_0.name,u1_0.password,b1_0.first_chapter,b1_0.light_or_heavy,b1_0.num_of_chapters,b1_0.open_or_close,b1_0.summary,b1_0.title,b1_0.why_no,b1_0.why_yes from book b1_0 left join auther a1_0 on a1_0.id=b1_0.auther_id left join category c1_0 on c1_0.id=b1_0.category_id left join favorite_book fb1_0 on fb1_0.id=b1_0.favorite_book_id left join users u1_0 on u1_0.id=fb1_0.user_id where b1_0.id=? [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1170)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:328)
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:153)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:183)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:155)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.lambda$list$0(JdbcSelectExecutor.java:85)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:231)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:167)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.advanceNext(JdbcValuesResultSetImpl.java:265)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.processNext(JdbcValuesResultSetImpl.java:145)
+	at org.hibernate.sql.results.jdbc.internal.AbstractJdbcValues.next(AbstractJdbcValues.java:19)
+	at org.hibernate.sql.results.internal.RowProcessingStateStandardImpl.next(RowProcessingStateStandardImpl.java:67)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:182)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:211)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65)
+	at org.hibernate.loader.ast.internal.SingleIdLoadPlan.load(SingleIdLoadPlan.java:145)
+	at org.hibernate.loader.ast.internal.SingleIdLoadPlan.load(SingleIdLoadPlan.java:117)
+	at org.hibernate.loader.ast.internal.SingleIdEntityLoaderStandardImpl.load(SingleIdEntityLoaderStandardImpl.java:75)
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:3740)
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:3729)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:604)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromCacheOrDatasource(DefaultLoadEventListener.java:590)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:560)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:544)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:207)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadWithRegularProxy(DefaultLoadEventListener.java:290)
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:242)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:111)
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:68)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138)
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1225)
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1213)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.load(IdentifierLoadAccessImpl.java:209)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.doLoad(IdentifierLoadAccessImpl.java:160)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.lambda$load$1(IdentifierLoadAccessImpl.java:149)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.perform(IdentifierLoadAccessImpl.java:112)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.load(IdentifierLoadAccessImpl.java:149)
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:2429)
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:2400)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364)
+	at jdk.proxy2/jdk.proxy2.$Proxy116.find(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy116.find(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:317)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:173)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy123.findById(Unknown Source)
+	at com.example.finaljavaproject.controller.BookController.getAllChapters(BookController.java:129)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-12-19 16:15:13.149722+02:00 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "B1_0.COUNT_SCORE" not found; SQL statement:
+select b1_0.id,a1_0.id,a1_0.name,b1_0.author_id,c1_0.id,c1_0.name,b1_0.count_score,b1_0.date_out,b1_0.description,fb1_0.id,u1_0.id,u1_0.email,u1_0.image,u1_0.name,u1_0.password,b1_0.first_chapter,b1_0.light_or_heavy,b1_0.num_of_chapters,b1_0.open_or_close,b1_0.summary,b1_0.title,b1_0.why_no,b1_0.why_yes from book b1_0 left join auther a1_0 on a1_0.id=b1_0.auther_id left join category c1_0 on c1_0.id=b1_0.category_id left join favorite_book fb1_0 on fb1_0.id=b1_0.favorite_book_id left join users u1_0 on u1_0.id=fb1_0.user_id where b1_0.id=? [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1170)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:328)
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:153)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:183)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:155)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.lambda$list$0(JdbcSelectExecutor.java:85)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:231)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:167)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.advanceNext(JdbcValuesResultSetImpl.java:265)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.processNext(JdbcValuesResultSetImpl.java:145)
+	at org.hibernate.sql.results.jdbc.internal.AbstractJdbcValues.next(AbstractJdbcValues.java:19)
+	at org.hibernate.sql.results.internal.RowProcessingStateStandardImpl.next(RowProcessingStateStandardImpl.java:67)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:182)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:211)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65)
+	at org.hibernate.loader.ast.internal.SingleIdLoadPlan.load(SingleIdLoadPlan.java:145)
+	at org.hibernate.loader.ast.internal.SingleIdLoadPlan.load(SingleIdLoadPlan.java:117)
+	at org.hibernate.loader.ast.internal.SingleIdEntityLoaderStandardImpl.load(SingleIdEntityLoaderStandardImpl.java:75)
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:3740)
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:3729)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:604)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromCacheOrDatasource(DefaultLoadEventListener.java:590)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:560)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:544)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:207)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadWithRegularProxy(DefaultLoadEventListener.java:290)
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:242)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:111)
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:68)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138)
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1225)
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1213)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.load(IdentifierLoadAccessImpl.java:209)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.doLoad(IdentifierLoadAccessImpl.java:160)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.lambda$load$1(IdentifierLoadAccessImpl.java:149)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.perform(IdentifierLoadAccessImpl.java:112)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.load(IdentifierLoadAccessImpl.java:149)
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:2429)
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:2400)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364)
+	at jdk.proxy2/jdk.proxy2.$Proxy116.find(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy116.find(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:317)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:173)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy123.findById(Unknown Source)
+	at com.example.finaljavaproject.controller.BookController.getAllResponse(BookController.java:135)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-12-19 16:15:24.795617+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "B1_0.COUNT_SCORE" not found; SQL statement:
+select b1_0.id,a1_0.id,a1_0.name,b1_0.author_id,c1_0.id,c1_0.name,b1_0.count_score,b1_0.date_out,b1_0.description,fb1_0.id,u1_0.id,u1_0.email,u1_0.image,u1_0.name,u1_0.password,b1_0.first_chapter,b1_0.light_or_heavy,b1_0.num_of_chapters,b1_0.open_or_close,b1_0.summary,b1_0.title,b1_0.why_no,b1_0.why_yes from book b1_0 left join auther a1_0 on a1_0.id=b1_0.auther_id left join category c1_0 on c1_0.id=b1_0.category_id left join favorite_book fb1_0 on fb1_0.id=b1_0.favorite_book_id left join users u1_0 on u1_0.id=fb1_0.user_id where b1_0.id=? [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1170)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:328)
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:153)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:183)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:155)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.lambda$list$0(JdbcSelectExecutor.java:85)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:231)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:167)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.advanceNext(JdbcValuesResultSetImpl.java:265)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.processNext(JdbcValuesResultSetImpl.java:145)
+	at org.hibernate.sql.results.jdbc.internal.AbstractJdbcValues.next(AbstractJdbcValues.java:19)
+	at org.hibernate.sql.results.internal.RowProcessingStateStandardImpl.next(RowProcessingStateStandardImpl.java:67)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:182)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:211)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65)
+	at org.hibernate.loader.ast.internal.SingleIdLoadPlan.load(SingleIdLoadPlan.java:145)
+	at org.hibernate.loader.ast.internal.SingleIdLoadPlan.load(SingleIdLoadPlan.java:117)
+	at org.hibernate.loader.ast.internal.SingleIdEntityLoaderStandardImpl.load(SingleIdEntityLoaderStandardImpl.java:75)
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:3740)
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:3729)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:604)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromCacheOrDatasource(DefaultLoadEventListener.java:590)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:560)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:544)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:207)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadWithRegularProxy(DefaultLoadEventListener.java:290)
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:242)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:111)
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:68)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138)
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1225)
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1213)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.load(IdentifierLoadAccessImpl.java:209)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.doLoad(IdentifierLoadAccessImpl.java:160)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.lambda$load$1(IdentifierLoadAccessImpl.java:149)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.perform(IdentifierLoadAccessImpl.java:112)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.load(IdentifierLoadAccessImpl.java:149)
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:2429)
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:2400)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364)
+	at jdk.proxy2/jdk.proxy2.$Proxy116.find(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy116.find(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:317)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:173)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy123.findById(Unknown Source)
+	at com.example.finaljavaproject.controller.ResponseController.createResponse(ResponseController.java:42)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-12-19 16:15:24.818561+02:00 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Column "B1_0.COUNT_SCORE" not found; SQL statement:
+select b1_0.id,a1_0.id,a1_0.name,b1_0.author_id,c1_0.id,c1_0.name,b1_0.count_score,b1_0.date_out,b1_0.description,fb1_0.id,u1_0.id,u1_0.email,u1_0.image,u1_0.name,u1_0.password,b1_0.first_chapter,b1_0.light_or_heavy,b1_0.num_of_chapters,b1_0.open_or_close,b1_0.summary,b1_0.title,b1_0.why_no,b1_0.why_yes from book b1_0 left join auther a1_0 on a1_0.id=b1_0.auther_id left join category c1_0 on c1_0.id=b1_0.category_id left join favorite_book fb1_0 on fb1_0.id=b1_0.favorite_book_id left join users u1_0 on u1_0.id=fb1_0.user_id where b1_0.id=? [42122-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.expression.ExpressionColumn.getColumnException(ExpressionColumn.java:244)
+	at org.h2.expression.ExpressionColumn.optimizeOther(ExpressionColumn.java:226)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:213)
+	at org.h2.command.query.Select.prepareExpressions(Select.java:1170)
+	at org.h2.command.query.Query.prepare(Query.java:218)
+	at org.h2.command.Parser.prepareCommand(Parser.java:489)
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:639)
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:559)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:93)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:316)
+	at com.zaxxer.hikari.pool.ProxyConnection.prepareStatement(ProxyConnection.java:328)
+	at com.zaxxer.hikari.pool.HikariProxyConnection.prepareStatement(HikariProxyConnection.java)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$5.doPrepare(StatementPreparerImpl.java:153)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl$StatementPreparationTemplate.prepareStatement(StatementPreparerImpl.java:183)
+	at org.hibernate.engine.jdbc.internal.StatementPreparerImpl.prepareQueryStatement(StatementPreparerImpl.java:155)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.lambda$list$0(JdbcSelectExecutor.java:85)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.executeQuery(DeferredResultSetAccess.java:231)
+	at org.hibernate.sql.results.jdbc.internal.DeferredResultSetAccess.getResultSet(DeferredResultSetAccess.java:167)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.advanceNext(JdbcValuesResultSetImpl.java:265)
+	at org.hibernate.sql.results.jdbc.internal.JdbcValuesResultSetImpl.processNext(JdbcValuesResultSetImpl.java:145)
+	at org.hibernate.sql.results.jdbc.internal.AbstractJdbcValues.next(AbstractJdbcValues.java:19)
+	at org.hibernate.sql.results.internal.RowProcessingStateStandardImpl.next(RowProcessingStateStandardImpl.java:67)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:182)
+	at org.hibernate.sql.results.spi.ListResultsConsumer.consume(ListResultsConsumer.java:33)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.doExecuteQuery(JdbcSelectExecutorStandardImpl.java:211)
+	at org.hibernate.sql.exec.internal.JdbcSelectExecutorStandardImpl.executeQuery(JdbcSelectExecutorStandardImpl.java:83)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:76)
+	at org.hibernate.sql.exec.spi.JdbcSelectExecutor.list(JdbcSelectExecutor.java:65)
+	at org.hibernate.loader.ast.internal.SingleIdLoadPlan.load(SingleIdLoadPlan.java:145)
+	at org.hibernate.loader.ast.internal.SingleIdLoadPlan.load(SingleIdLoadPlan.java:117)
+	at org.hibernate.loader.ast.internal.SingleIdEntityLoaderStandardImpl.load(SingleIdEntityLoaderStandardImpl.java:75)
+	at org.hibernate.persister.entity.AbstractEntityPersister.doLoad(AbstractEntityPersister.java:3740)
+	at org.hibernate.persister.entity.AbstractEntityPersister.load(AbstractEntityPersister.java:3729)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromDatasource(DefaultLoadEventListener.java:604)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadFromCacheOrDatasource(DefaultLoadEventListener.java:590)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:560)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doLoad(DefaultLoadEventListener.java:544)
+	at org.hibernate.event.internal.DefaultLoadEventListener.load(DefaultLoadEventListener.java:207)
+	at org.hibernate.event.internal.DefaultLoadEventListener.loadWithRegularProxy(DefaultLoadEventListener.java:290)
+	at org.hibernate.event.internal.DefaultLoadEventListener.proxyOrLoad(DefaultLoadEventListener.java:242)
+	at org.hibernate.event.internal.DefaultLoadEventListener.doOnLoad(DefaultLoadEventListener.java:111)
+	at org.hibernate.event.internal.DefaultLoadEventListener.onLoad(DefaultLoadEventListener.java:68)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138)
+	at org.hibernate.internal.SessionImpl.fireLoadNoChecks(SessionImpl.java:1225)
+	at org.hibernate.internal.SessionImpl.fireLoad(SessionImpl.java:1213)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.load(IdentifierLoadAccessImpl.java:209)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.doLoad(IdentifierLoadAccessImpl.java:160)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.lambda$load$1(IdentifierLoadAccessImpl.java:149)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.perform(IdentifierLoadAccessImpl.java:112)
+	at org.hibernate.loader.internal.IdentifierLoadAccessImpl.load(IdentifierLoadAccessImpl.java:149)
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:2429)
+	at org.hibernate.internal.SessionImpl.find(SessionImpl.java:2400)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:364)
+	at jdk.proxy2/jdk.proxy2.$Proxy116.find(Unknown Source)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319)
+	at jdk.proxy2/jdk.proxy2.$Proxy116.find(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.findById(SimpleJpaRepository.java:317)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:355)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:277)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:173)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:148)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:70)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:379)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:138)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:165)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223)
+	at jdk.proxy2/jdk.proxy2.$Proxy123.findById(Unknown Source)
+	at com.example.finaljavaproject.controller.BookController.getAllResponse(BookController.java:135)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:255)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:188)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:926)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:831)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1089)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:979)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1014)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:903)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:564)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+2024-12-24 21:50:55.220063+02:00 jdbc[55]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "[*]AUTHER"; expected "ALTER, ANALYZE"; SQL statement:
+AUTHER [42001-224]
+2024-12-24 21:51:16.404786+02:00 jdbc[56]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "U&'\\05d7\\05e2\\05d9' (AUTHER: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."AUTHER"("ID","NAME")VALUES(?,?) [22018-224]
+2024-12-24 21:51:16.404786+02:00 jdbc[56]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "U&'\\05d7\\05e2\\05d9' (AUTHER: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."AUTHER"("ID","NAME")VALUES(?,?) [22018-224]
+2024-12-24 21:51:27.825019+02:00 jdbc[56]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (AUTHER: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."AUTHER"("ID","NAME")VALUES(?,?) [22018-224]
+2024-12-24 21:51:27.825019+02:00 jdbc[56]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (AUTHER: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."AUTHER"("ID","NAME")VALUES(?,?) [22018-224]
+2024-12-24 22:21:44.727199+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (AUTHER: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."AUTHER"("ID","NAME")VALUES(?,?) [22018-224]
+2024-12-24 22:21:44.733066+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (AUTHER: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."AUTHER"("ID","NAME")VALUES(?,?) [22018-224]
+2024-12-24 22:37:43.008860+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (BOOK: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."BOOK"("ID","AUTHOR_ID","COUNT_SCORE","DATE_OUT","DESCRIPTION","FIRST_CHAPTER","LIGHT_OR_HEAVY","NUM_OF_CHAPTERS","OPEN_OR_CLOSE","SUMMARY","TITLE","WHY_NO","WHY_YES","AUTHER_ID","CATEGORY_ID","FAVORITE_BOOK_ID")VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) [22018-224]
+2024-12-24 22:37:43.009860+02:00 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (BOOK: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."BOOK"("ID","AUTHOR_ID","COUNT_SCORE","DATE_OUT","DESCRIPTION","FIRST_CHAPTER","LIGHT_OR_HEAVY","NUM_OF_CHAPTERS","OPEN_OR_CLOSE","SUMMARY","TITLE","WHY_NO","WHY_YES","AUTHER_ID","CATEGORY_ID","FAVORITE_BOOK_ID")VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?) [22018-224]
+2025-01-12 01:17:06.712604+02:00 jdbc[35]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-224]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:218)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:135)
+	at org.h2.util.JdbcUtils.getConnection(JdbcUtils.java:288)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:811)
+	at org.h2.server.web.WebApp.login(WebApp.java:1039)
+	at org.h2.server.web.WebApp.process(WebApp.java:227)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:177)
+	at org.h2.server.web.JakartaWebServlet.doGet(JakartaWebServlet.java:129)
+	at org.h2.server.web.JakartaWebServlet.doPost(JakartaWebServlet.java:166)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:195)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:164)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:140)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:483)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:344)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:384)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:905)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1741)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1190)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:63)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 47 more
+2025-01-12 01:37:22.676784+02:00 jdbc[36]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-224]
+	at org.h2.message.DbException.get(DbException.java:223)
+	at org.h2.message.DbException.get(DbException.java:199)
+	at org.h2.message.DbException.get(DbException.java:188)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:218)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:135)
+	at org.h2.Driver.connect(Driver.java:59)
+	at com.zaxxer.hikari.util.DriverDataSource.getConnection(DriverDataSource.java:137)
+	at com.zaxxer.hikari.pool.PoolBase.newConnection(PoolBase.java:360)
+	at com.zaxxer.hikari.pool.PoolBase.newPoolEntry(PoolBase.java:202)
+	at com.zaxxer.hikari.pool.HikariPool.createPoolEntry(HikariPool.java:461)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:724)
+	at com.zaxxer.hikari.pool.HikariPool$PoolEntryCreator.call(HikariPool.java:703)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+Caused by: org.h2.jdbc.JdbcSQLNonTransientConnectionException: The connection was not closed by the application and is garbage collected [90018-224]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:690)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489)
+	... 16 more
