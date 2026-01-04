@@ -1,33 +1,33 @@
-
-import './App.css'
-import Login from '../src/components/Login';
-import HomePage from '../src/components/HomePage'
-import Signup from './components/Signup';
+import './styles/App.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Book from './components/Book'
-import PresentBook from './components/PresentBook'
-import Layout from './components/Layout '
-import Search from '../src/components/Search'
-import UpdateUser from '../src/components/UpdateUser'
+import Login from './components/Login';
+import Signup from './components/Signup';
+import HomePage from './components/HomePage';
+import Book from './components/Book';
+import PresentBook from './components/PresentBook';
+import Search from '../src/components/Search';
+import UpdateUser from '../src/components/UpdateUser';
 import DailyBook from './components/DailyBook';
 import Chapter from './components/Chapter';
+import AboutUs from './components/AboutUs ';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import Layout from './components/Layout'
 import NoNavLayout from './components/NoNavLayout';
-import AboutUs from './components/AboutUs '
-import PrivacyPolicy from './components/PrivacyPolicy '
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <NoNavLayout />, // Layout בלי Navbar ו-Footer
+    element: <NoNavLayout />, 
     children: [
-      { index: true, element: <Login  replace /> }, // הפניה ל-Login כברירת מחדל
+      { index: true, element: <Login  replace /> }, //default to login
       { path: "/Login", element: <Login /> },
       { path: "/Signup", element: <Signup /> },
     ],
   },
   {
     path: "/",
-    element: <Layout />, // Layout עם Navbar ו-Footer
+    //All children live in a permanent structure.
+    element: <Layout />, 
     children: [
       { path: "/HomePage", element: <HomePage /> },
       { path: "/Book", element: <Book /> },
@@ -40,7 +40,6 @@ const router = createBrowserRouter([
       { path: "/PrivacyPolicy", element: <PrivacyPolicy/>}
     ],
   },
-
 ]);
 
 function App() {

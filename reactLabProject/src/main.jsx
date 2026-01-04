@@ -5,10 +5,11 @@ import { store } from './app/store';
 import { Provider } from 'react-redux';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
-const theme = createTheme(); // יצירת Theme ברירת מחדל
+const theme = createTheme(); 
 
 createRoot(document.getElementById('root')).render(
-    <Provider store={store}>
+  // Access to data storage from any component
+    <Provider store={store}> 
       <ThemeProvider theme={theme}>
         <App />
       </ThemeProvider>

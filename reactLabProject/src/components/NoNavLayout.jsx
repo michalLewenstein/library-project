@@ -1,6 +1,4 @@
-import React from "react";
 import { Outlet } from "react-router-dom";
-import Login from '../components/Login'
 
 export default function NoNavLayout() {
     return (
@@ -9,11 +7,11 @@ export default function NoNavLayout() {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                height: "100vh", // תופס את כל הגובה
-                backgroundColor: "white", // צבע רקע לבדיקה
+                height: "100vh", 
+                backgroundColor: "white", 
             }}
         >
-            <Outlet/>
+            <Outlet/> 
         </div>
     );
 }
