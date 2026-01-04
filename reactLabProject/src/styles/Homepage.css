@@ -1,0 +1,24 @@
+.category-button {
+    background-color: #f5f5f5; /* רקע אפור בהיר */
+    border: 2px solid #ccc; /* מסגרת עדינה */
+    border-radius: 12px; /* עיגול פינות */
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #333; /* טקסט כהה */
+    cursor: pointer;
+    margin: 0 10px;
+    transition: all 0.3s ease;
+  }
+  
+  .category-button:hover {
+    background-color: #1e88e5; /* רקע צהוב קליל */
+    border-color: #354f66; /* מסגרת כתומה */
+    color: #222; /* טקסט כהה יותר */
+  }
+  
+  .category-button.selected {
+    background-color: #1e88e5; /* רקע כתום בהיר */
+    border-color: #354f66; /* מסגרת כתומה כהה */
+    color: white; /* טקסט לבן */
+    font-weight: bold;
+  }
