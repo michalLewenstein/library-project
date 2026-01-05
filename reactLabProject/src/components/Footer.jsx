@@ -1,121 +1,66 @@
-import { Grid } from "@mui/material";
+import { Grid, Box } from "@mui/material";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
+
+  const linkStyle = {
+    textDecoration: "none",
+    color: "#1e88e5",
+    fontWeight: 500,
+  };
+
   return (
-    <Grid
-      container
+    <Box
+      component="footer"
       sx={{
-        display: "flex",
-        flexDirection: { xs: "column", md: "row" }, // Column on small screens, row on large
-        alignItems: "center",
-        justifyContent: "space-between",
-        width: "100vw",
-        color: "white",
-        margin: 0,
-        padding: { xs: "10px", md: "20px" }, // Adjust padding for smaller screens
-        boxSizing: "border-box",
-        boxShadow: "0px 8px 16px rgba(0, 0, 0, 0.8)",
-        gap: { xs: "10px", md: "0px" }, // Add spacing between items on smaller screens
-        flexWrap: "wrap", // Allow items to wrap when space is limited
+        width: "100%",
+        backgroundColor: "#f5f7fa",
+        boxShadow: "0px 4px 10px rgba(0,0,0,0.15)",
       }}
     >
-      {/* שירות לקוחות */}
-      <Grid
-        item
-        md={4}
-        xs={12}
+      <Box
         sx={{
-          textAlign: "center",
-          borderBottom: { xs: "3px solid #ccc", md: "none" }, // Separator for small screens
-          padding: "10px",
+          maxWidth: "1200px",
+          margin: "0 auto",
+          px: { xs: 2, md: 6 },
+          py: 4,
         }}
       >
-        <h3 style={{ fontWeight: "bold", textDecoration: "underline" }}>
-          👨‍💻 שירות לקוחות 👨‍💻
-        </h3>
-        <ul style={{ listStyle: "none", padding: 0, lineHeight: "2" }}>
-          <li>יש לכם שאלות? נשמח לעזור!</li>
-          <li>lmichal2024@gmail.com</li>
-          <li>טלפון: 058-3230290</li>
-          <li>שעות פעילות: א'-ה' 09:00-17:00</li>
-        </ul>
-      </Grid>
+        <Grid container spacing={2}>
+          <Grid item xs={12} md={4} textAlign="center">
+            <h3>👨‍💻 שירות לקוחות</h3>
+            <ul style={{ listStyle: "none", padding: 0 }}>
+              <li>יש לכם שאלות? נשמח לעזור!</li>
+              <li>lmichal2024@gmail.com</li>
+              <li>טלפון: 058-3230290</li>
+              <li>א'-ה' 09:00–17:00</li>
+            </ul>
+          </Grid>
 
-      {/* המלצה היומית */}
-      <Grid
-        item
-        md={4}
-        xs={12}
-        sx={{
-          textAlign: "center",
-          borderBottom: { xs: "3px solid #ccc", md: "none" }, // Separator for small screens
-          padding: "10px",
-          borderRight: { md: "4px solid #ccc", xs: "none" }, // Divider for larger screens
-        }}
-      >
-        <h3 style={{ fontWeight: "bold", textDecoration: "underline" }}>
-          😉 המלצה היומית 😉
-        </h3>
-        <ul style={{ listStyle: "none", padding: 0, lineHeight: "2" }}>
-          <li>
-            צוות הספרייה ממליץ על ספר:
-            <a href="/DailyBook" style={{ color: "white" }}>
-              לחץ כדי לגלות
-            </a>
-          </li>
-          <li>התחל את היום עם קריאה מעוררת השראה!</li>
-        </ul>
-      </Grid>
+          <Grid item xs={12} md={4} textAlign="center">
+            <h3>😉 המלצה היומית</h3>
+            <ul style={{ listStyle: "none", padding: 0 }}>
+              <li>צוות הספרייה ממליץ על ספר:</li>
+              <li>
+                <Link to="/DailyBook" style={{ color: "#1e88e5", fontWeight: 600 }}>
+                  לחץ כדי לגלות →
+                </Link>
+              </li>
+              <li>התחל את היום עם קריאה מעוררת השראה!</li>
+            </ul>
+          </Grid>
 
-      {/* קישורים חשובים */}
-      <Grid
-        item
-        md={4}
-        xs={12}
-        sx={{
-          textAlign: "center",
-          padding: "10px",
-          borderRight: { md: "4px solid #ccc", xs: "none" }, // Divider for larger screens
-        }}
-      >
-        <h3 style={{ fontWeight: "bold", textDecoration: "underline" }}>
-          👌 קישורים חשובים 👌
-        </h3>
-        <ul style={{ listStyle: "none", padding: 0, lineHeight: "2" }}>
-          <li>
-            <a
-              href="/HomePage"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              דף הבית
-            </a>
-          </li>
-          <li>
-            <a
-              href="/Chapter"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              כתיבת ספר בהמשכים
-            </a>
-          </li>
-          <li>
-            <a
-              href="/AboutUs"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              אודות
-            </a>
-          </li>
-          <li>
-            <a
-              href="/PrivacyPolicy"
-              style={{ textDecoration: "none", color: "white" }}
-            >
-              מדיניות ופרטיות
-            </a>
-          </li>
-        </ul>
-      </Grid>
-    </Grid>
+          <Grid item xs={12} md={4} textAlign="center">
+            <h3>👌 קישורים חשובים</h3>
+            <ul style={{ listStyle: "none", padding: 0 }}>
+              <li><Link to="/HomePage" style={linkStyle}>דף הבית</Link></li>
+              <li><Link to="/Chapter" style={linkStyle}>כתיבת ספר בהמשכים</Link></li>
+              <li><Link to="/AboutUs" style={linkStyle}>אודות</Link></li>
+              <li><Link to="/PrivacyPolicy" style={linkStyle}>מדיניות ופרטיות</Link></li>
+            </ul>
+          </Grid>
+        </Grid>
+      </Box>
+    </Box>
   );
 }
