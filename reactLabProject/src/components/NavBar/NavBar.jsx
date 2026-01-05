@@ -1,4 +1,3 @@
-// יבוא של כל הרכיבים הדרושים מהספריות השונות
 import * as React from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
