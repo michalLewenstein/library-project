@@ -15,7 +15,7 @@ export default function UpdateUser() {
     const navigate = useNavigate();
     // const storeUser = localStorage.getItem("user");
     // let user = '';
-    const user = useSelector((state)=>state.userDetails.user||null);
+    const user = useSelector((state)=>state.user.user||null);
     const [userId, setUserId] = useState('');
     const [userFirstName, setUserFirstName] = useState('');
     const [userLastName, setUserLastName] = useState('');

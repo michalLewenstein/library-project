@@ -2,50 +2,52 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 import { logInUser, UpdateUser } from '../services/userServices'
 
 //=====login
-export const login = createAsyncThunk("user/login", async (newUser, { rejectWithValue }) => {
+export const login = createAsyncThunk(
+  "user/login", 
+  async (newUser, { rejectWithValue }) => {
   try {
     const userData = await logInUser(newUser);
     localStorage.setItem("user", JSON.stringify(userData));
     return userData;
   }
   catch (err) {
-    return rejectWithValue(err.response?.data?.message || "שגיאת התחברות");
+    return rejectWithValue(
+      err.response?.data?.message || "שגיאת התחברות");
   }
 })
 
 //updateUser
-export const update = createAsyncThunk("user/update", async (newUser, { rejectWithValue }) => {
+export const update = createAsyncThunk(
+  "user/update",
+   async (newUser, { rejectWithValue }) => {
   try {
-    const response = await UpdateUser(newUser);
-    console.log(response);
-
-    return response;
+    return await UpdateUser(newUser);
   }
   catch (err) {
-    return rejectWithValue(err);
+    return rejectWithValue(err.response?.data || "שגיאה בעדכון משתמש");
   }
 })
 
 const initialState = {
   user: null,
-  isConected: false,
+  isConnected: false,
   loading: false,
   error: null
 }
 
 export const userSlice = createSlice({
-  name: 'userDetails',
+  name: 'user',
   initialState,
   reducers: {
     logout: (state) => {
       state.user = null;
-      state.isConected = false;
+      state.isConnected = false;
       state.error = null;
       localStorage.removeItem("user");
     },
     setUserFromStorage: (state, action) => {
       state.user = action.payload;
-      state.isConected = true;
+      state.isConnected = true;
     }
   },
   extraReducers: (builder) => {
@@ -54,7 +56,7 @@ export const userSlice = createSlice({
       //finish
       .addCase(login.fulfilled, (state, actions) => {
         state.loading = false;
-        state.isConected = true;
+        state.isConnected = true;
         state.user = actions.payload;
       })
       //middle

@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit"
-import userDetailsReducer from '../slices/userSlice'
+import userReducer from '../slices/userSlice'
 import categoryRrducer from '../slices/categorySlice'
 import bookReducer from '../slices/bookSlice'
 import chapterReducer from '../slices/categorySlice'
@@ -8,7 +8,7 @@ import responseReducer from '../slices/responseSlice'
 
 export const store = configureStore({
     reducer: {
-        userDetails: userDetailsReducer,
+        user: userReducer,
         category: categoryRrducer,
         book: bookReducer,
         chapter: chapterReducer,

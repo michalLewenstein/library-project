@@ -1,33 +1,19 @@
 import axiosInstance from "./api";
 
-//logIn
+// login
 export const logInUser = async (user) => {
-    try {
-        const response = await axiosInstance.post('/users/logIN', user);
-        return response.data;
-    } catch (err) {
-        throw err;
-    }
+  const response = await axiosInstance.post("/users/login", user);
+  return response.data;
 };
 
-//signup
+// signup
 export const signUpUser = async (user) => {
-    try {
-        const response = await axiosInstance.post('/users/signup', user)
-        return response.data;
-    }
-    catch (err) {
-       throw err.response;
-    }
-}
+  const response = await axiosInstance.post("/users/signup", user);
+  return response.data;
+};
 
-//UpdateUser
-export const UpdateUser = async(newUser)=>{    
-    try{
-        const response = await axiosInstance.put(`/users/updateUsers/${newUser.id}`,newUser);
-        return response.data;
-    }
-    catch(err){
-        throw err;
-    }
-}
+// update user
+export const updateUser = async (user) => {
+  const response = await axiosInstance.put(`/users/updateUsers/${user.id}`, user);
+  return response.data;
+};

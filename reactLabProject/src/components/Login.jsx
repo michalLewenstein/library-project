@@ -1,16 +1,17 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { login } from "../slices/userSlice";
 import { useNavigate, Link } from "react-router-dom";
+import { login } from "../slices/userSlice";
 import { Box, Typography, TextField, Button, Grid } from "@mui/material";
 
 
 export default function LoginPage() {
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const { isConected, loading, error } = useSelector(
-    (state) => state.userDetails
+    (state) => state.user
   );
 
   const [userName, setUserName] = useState("");
@@ -28,7 +29,7 @@ export default function LoginPage() {
     }
 
     const newUser = { name: userName, password: userPassword };
-    dispatch(login(newUser));
+    await dispatch(login(newUser));
   };
 
   useEffect(() => {

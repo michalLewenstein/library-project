@@ -19,16 +19,21 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     if (!userFirstName || !userPassword || !userEmail) {
       setErrorMessage("אלו שדות חובה");
       return;
-    } else if (!userEmail.includes("@")) {
+    }
+
+    if (!userEmail.includes("@")) {
       setErrorMessage("המייל חייב להכיל @!");
-      setUserEmail("");
       return;
     }
+
     const signupData = {
-      name: userLastName ? `${userFirstName} ${userLastName}` : userFirstName,
+      name: userLastName
+        ? `${userFirstName} ${userLastName}`
+        : userFirstName,
       password: userPassword,
       email: userEmail,
     };
@@ -36,7 +41,6 @@ export default function SignUp() {
     try {
       await signUpUser(signupData);
       navigate("/Login");
-
     } catch (err) {
       if (err.response?.status === 409) {
         setErrorMessage("המשתמש כבר קיים במערכת");
