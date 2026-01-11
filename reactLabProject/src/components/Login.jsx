@@ -1,50 +1,52 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { login } from "../slices/userSlice";
-import { useNavigate } from "react-router-dom";
-import '../styles/login.css'
+import { useNavigate, Link } from "react-router-dom";
 import { Box, Typography, TextField, Button, Grid } from "@mui/material";
 
 
 export default function LoginPage() {
   const dispatch = useDispatch();
-  const [userName, setUserName] = useState("");
-  const [userPassword, setUserPassword] = useState("");
   const navigate = useNavigate();
 
+  const { isConected, loading, error } = useSelector(
+    (state) => state.userDetails
+  );
+
+  const [userName, setUserName] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
   const handleSubmit = async (e) => {
+
     e.preventDefault();
+    setErrorMessage("");
 
     if (!userName || !userPassword) {
-      alert("אלו שדות חובה!");
+      setErrorMessage("אלו שדות חובה!");
       return;
     }
 
     const newUser = { name: userName, password: userPassword };
-
-    try {
-      const response = await dispatch(login(newUser));
-
-      if (login.fulfilled.match(response)) {
-        navigate("/HomePage");
-      } else if (login.rejected.match(response)) {
-        const error = response.payload?.status;
-        if (error === 404) {
-          alert("השם משתמש לא קיים במערכת");
-          setUserName("");
-        } else if (error === 409) {
-          alert("הסיסמה לא נכונה!!!!!");
-          setUserPassword("");
-        }
-      }
-    } catch (err) {
-      alert("אירעה שגיאה במערכת. נסה שוב מאוחר יותר!");
-    }
+    dispatch(login(newUser));
   };
+
+  useEffect(() => {
+    if (isConected) {
+      navigate("/HomePage");
+    }
+  }, [isConected, navigate]);
+
+  useEffect(() => {
+    if (error) {
+      setUserPassword("");
+    }
+  }, [error]);
+
 
   return (
     <Grid container style={{ height: "100vh" }}>
-      
+
 
       {/* Form Section */}
       <Grid
@@ -55,7 +57,7 @@ export default function LoginPage() {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          
+
         }}
       >
         <Box
@@ -63,11 +65,12 @@ export default function LoginPage() {
             width: "100%",
             maxWidth: 400,
             padding: 4,
-            
-            
+
+
           }}
         >
-          <Typography variant="h5" sx={{ mb: 2, textAlign: "center",marginBottom:"5vh" }}>
+
+          <Typography variant="h5" sx={{ mb: 2, textAlign: "center", marginBottom: "5vh" }}>
             התחברות
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate>
@@ -77,7 +80,7 @@ export default function LoginPage() {
               variant="outlined"
               value={userName}
               onChange={(e) => setUserName(e.target.value)}
-              sx={{ mb: 2,marginBottom:"3vh" }}
+              sx={{ mb: 2, marginBottom: "3vh" }}
             />
             <TextField
               fullWidth
@@ -86,13 +89,23 @@ export default function LoginPage() {
               variant="outlined"
               value={userPassword}
               onChange={(e) => setUserPassword(e.target.value)}
-              sx={{ mb: 2 ,marginBottom:"3vh" }}
+              sx={{ mb: 2, marginBottom: "3vh" }}
             />
-            <Button type="submit" variant="contained" color="primary" fullWidth sx={{ mb: 2 }}>
-              התחבר
+            {(errorMessage || error) && (
+              <Typography
+                color="error"
+                variant="body2"
+                textAlign="center"
+                sx={{ mb: 2 }}
+              >
+                {errorMessage || error}
+              </Typography>
+            )}
+            <Button type="submit" variant="contained" color="primary" disabled={loading} fullWidth sx={{ mb: 2 }}>
+              {loading ? "מתחבר..." : "התחבר"}
             </Button>
             <Typography variant="body2" textAlign="center">
-              אין לך חשבון? <a href="/signup">הרשמה</a>
+              אין לך חשבון? <Link to="/signup">הרשמה</Link>
             </Typography>
           </Box>
         </Box>
@@ -100,7 +113,7 @@ export default function LoginPage() {
       {/* Image Section */}
       <Grid
         item
-        
+
         md={8}
         sx={{
           backgroundImage: "url('/images/book2.jpg')",

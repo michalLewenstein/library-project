@@ -8,8 +8,6 @@ import responseReducer from '../slices/responseSlice'
 
 export const store = configureStore({
     reducer: {
-        //user=שם שקראנו לקטע של המשתמשים המאוחסנים בstor 
-        //כותבים את השם שהגדרנו בתוספת reducer
         userDetails: userDetailsReducer,
         category: categoryRrducer,
         book: bookReducer,

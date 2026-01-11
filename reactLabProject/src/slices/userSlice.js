@@ -1,27 +1,15 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { logInUser, signUpUser, UpdateUser } from '../services/userServices'
+import { logInUser, UpdateUser } from '../services/userServices'
 
 //=====login
 export const login = createAsyncThunk("user/login", async (newUser, { rejectWithValue }) => {
   try {
     const userData = await logInUser(newUser);
+    localStorage.setItem("user", JSON.stringify(userData));
     return userData;
   }
   catch (err) {
-    return rejectWithValue(err);
-  }
-
-
-})
-//=====signup
-export const signup = createAsyncThunk("user/signup", async (newUser, { rejectWithValue }) => {
-  try {
-    const userData = await signUpUser(newUser);
-    console.log("userslice user:", userData);
-    return userData;
-  }
-  catch (err) {
-    return rejectWithValue(err);
+    return rejectWithValue(err.response?.data?.message || "שגיאת התחברות");
   }
 })
 
@@ -40,63 +28,50 @@ export const update = createAsyncThunk("user/update", async (newUser, { rejectWi
 
 const initialState = {
   user: null,
-  isConected: false, 
+  isConected: false,
   loading: false,
   error: null
 }
 
 export const userSlice = createSlice({
-  //שם שנותנים לחתיכה זו כדי להשתמש בה בstor
   name: 'userDetails',
   initialState,
   reducers: {
-    // logout: (state) => {
-    //   state.isConected = false;
-    //   state.user = null;
-    // },
+    logout: (state) => {
+      state.user = null;
+      state.isConected = false;
+      state.error = null;
+      localStorage.removeItem("user");
+    },
+    setUserFromStorage: (state, action) => {
+      state.user = action.payload;
+      state.isConected = true;
+    }
   },
   extraReducers: (builder) => {
     builder
-      //==========login
-      //הפעולה הסתיימה
+      //login
+      //finish
       .addCase(login.fulfilled, (state, actions) => {
-        debugger;
-        console.log(actions.payload.data);
-        state.user = actions.payload.data;
-        localStorage.setItem("user", JSON.stringify(actions.payload));
+        state.loading = false;
+        state.isConected = true;
+        state.user = actions.payload;
       })
-      //אמצע הפעלה
+      //middle
       .addCase(login.pending, (state) => {
-        //פותח מצב טעינה
         state.loading = true;
-        //איפוס הודעת שגיאה במידה ונשארה ההודעה הקודמת
         state.error = null
       })
-      //טיפול במצב בו הפעולה נכשלה
+      //failed
       .addCase(login.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        state.error = action.payload;
       })
-      //==========signup
-      .addCase(signup.fulfilled, (state, action) => {
-        state.user = action.payload.data;
-      })
-      .addCase(signup.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(signup.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.error.message;
-      })
+
       //updateUser
       .addCase(update.fulfilled, (state, action) => {
-        localStorage.removeItem("user");
         debugger;
         state.user = action.payload;
-        console.log(user);
-        
-
       })
       .addCase(update.pending, (state) => {
         state.loading = true;
@@ -104,13 +79,10 @@ export const userSlice = createSlice({
       })
       .addCase(update.rejected, (state, action) => {
         state.loading = false;
-        state.error = action.error.message;
+        state.error = action.payload || action.error.message;
       })
   }
 })
 
-//ייצוא אקשנים-פעולות
-//export const { logout } = userSlice.actions
-
-//יצוא רדוסר
+export const { logout, setUserFromStorage } = userSlice.actions
 export default userSlice.reducer
