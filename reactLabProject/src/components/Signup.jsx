@@ -40,7 +40,7 @@ export default function SignUp() {
 
     try {
       await signUpUser(signupData);
-      navigate("/Login");
+      navigate("/login", { state: { fromSignup: true } });
     } catch (err) {
       if (err.response?.status === 409) {
         setErrorMessage("המשתמש כבר קיים במערכת");

@@ -13,9 +13,10 @@ import Search from './components/Search';
 import UpdateUser from './components/UpdateUser';
 import DailyBook from './components/DailyBook';
 import Chapter from './components/Chapter';
-import AboutUs from './components/AboutUs';
+import AboutUs from './components/AboutUs ';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import { setUserFromStorage } from './slices/userSlice';
+
 
 const router = createBrowserRouter([
   {

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useLocation } from "react-router-dom";
 import { login } from "../slices/userSlice";
 import { Box, Typography, TextField, Button, Grid } from "@mui/material";
 
@@ -9,8 +9,9 @@ export default function LoginPage() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
-  const { isConected, loading, error } = useSelector(
+  const { isConnected, loading, error } = useSelector(
     (state) => state.user
   );
 
@@ -29,14 +30,15 @@ export default function LoginPage() {
     }
 
     const newUser = { name: userName, password: userPassword };
-    await dispatch(login(newUser));
-  };
+    console.log("user login:", newUser);
 
-  useEffect(() => {
-    if (isConected) {
-      navigate("/HomePage");
+    try {
+      await dispatch(login(newUser)).unwrap(); 
+      navigate("/HomePage");          
+    } catch (err) {
+      setErrorMessage("שם משתמש או סיסמה שגויים");
     }
-  }, [isConected, navigate]);
+  };
 
   useEffect(() => {
     if (error) {

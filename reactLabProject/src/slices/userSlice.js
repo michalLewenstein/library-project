@@ -1,7 +1,7 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { logInUser, UpdateUser } from '../services/userServices'
+import { logInUser, updateUser } from '../services/userServices'
 
-//=====login
+//login
 export const login = createAsyncThunk(
   "user/login", 
   async (newUser, { rejectWithValue }) => {
@@ -21,7 +21,7 @@ export const update = createAsyncThunk(
   "user/update",
    async (newUser, { rejectWithValue }) => {
   try {
-    return await UpdateUser(newUser);
+    return await updateUser(newUser);
   }
   catch (err) {
     return rejectWithValue(err.response?.data || "שגיאה בעדכון משתמש");
@@ -72,8 +72,9 @@ export const userSlice = createSlice({
 
       //updateUser
       .addCase(update.fulfilled, (state, action) => {
-        debugger;
+        state.loading = false;
         state.user = action.payload;
+        localStorage.setItem("user", JSON.stringify(action.payload));
       })
       .addCase(update.pending, (state) => {
         state.loading = true;

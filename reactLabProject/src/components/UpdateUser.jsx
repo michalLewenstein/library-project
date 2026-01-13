@@ -13,46 +13,35 @@ import { update } from "../slices/userSlice";
 export default function UpdateUser() {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    // const storeUser = localStorage.getItem("user");
-    // let user = '';
-    const user = useSelector((state)=>state.user.user||null);
+
+    const user = useSelector((state) => state.user.user || null);
     const [userId, setUserId] = useState('');
     const [userFirstName, setUserFirstName] = useState('');
     const [userLastName, setUserLastName] = useState('');
     const [userPassword, setUserPassword] = useState('');
     const [userEmail, setUserEmail] = useState('');
+    const [errorMessage, setErrorMessage] = useState("");
 
     useEffect(() => {
-        // if(storeUser){
-        //     user = JSON.parse(storeUser);
-        //     user = user.data;
-        //             }
-        // console.log("עדכון ממשתמש: ", user);
         if (user) {
-              
-            const userName = user.name.split(" ");//מערך לפי רווחים
-            //אם יש רק שם פרטי
+            const userName = user.name.split(" ");
             if (userName.length === 1) {
                 setUserFirstName(userName[0]);
                 setUserLastName("");
-
             }
             else {
-                setUserLastName(userName.pop() || " ");//מכניס איבר אחרון
+                setUserLastName(userName.pop() || " ");
                 setUserFirstName(userName.join(" ") || " ");
-                
             }
             setUserId(user.id);
             setUserPassword(user.password || "");
             setUserEmail(user.email || "");
         }
-
     }, [user])
-
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (!userFirstName || !userPassword || !userEmail ) {
+        if (!userFirstName || !userPassword || !userEmail) {
             alert("אלו שדות חובה!");
             return;
         } else if (!userEmail.includes("@")) {
@@ -61,20 +50,18 @@ export default function UpdateUser() {
             return;
         }
         const newUser = {
-            id:userId,
-            name: userLastName? `${userFirstName} ${userLastName}` : userFirstName,
+            id: userId,
+            name: userLastName ? `${userFirstName} ${userLastName}` : userFirstName,
             password: userPassword,
             email: userEmail,
         };
-        console.log("newUser=============:", newUser);
-        
-        try {
-            const response = await dispatch(update(newUser));
-            console.log(response);
-            } catch (error) {
-              navigate("/Login");
-            }
 
+        try {
+            await dispatch(update(newUser)).unwrap();
+            navigate("/HomePage");
+        } catch (error) {
+            setErrorMessage("שגיאה בעדכון המשתמש");
+        }
     };
 
     return (
@@ -151,9 +138,19 @@ export default function UpdateUser() {
                             <Grid item xs={6}
                                 sx={{ mb: 2, marginBottom: "3vh" }}
                             >
-                               
+
                             </Grid>
                         </Grid>
+                        {errorMessage && (
+                            <Typography
+                                color="error"
+                                variant="body2"
+                                textAlign="center"
+                                sx={{ mb: 2 }}
+                            >
+                                {errorMessage}
+                            </Typography>
+                        )}
                         <Button
                             type="submit"
                             variant="contained"

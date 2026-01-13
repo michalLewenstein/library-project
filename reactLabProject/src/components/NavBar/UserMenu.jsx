@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { logout } from "../../slices/userSlice";
+import { useNavigate, Link } from "react-router-dom";
 import {
   IconButton,
   Menu,
@@ -9,13 +12,23 @@ import {
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import EditIcon from "@mui/icons-material/Edit";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import { Link } from "react-router-dom";
+import LogoutIcon from "@mui/icons-material/Logout";
+
 
 export default function UserMenu() {
   const [userMenuAnchor, setUserMenuAnchor] = useState(null);
   const isUserMenuOpen = Boolean(userMenuAnchor);
 
   const user = JSON.parse(localStorage.getItem("user"));
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    setUserMenuAnchor(null);
+    dispatch(logout());
+    navigate("/Login");
+  };
 
   return (
     <>
@@ -28,7 +41,7 @@ export default function UserMenu() {
       <Menu open={isUserMenuOpen} anchorEl={userMenuAnchor} onClose={() => setUserMenuAnchor(null)}>
         <MenuItem disabled>
           <Typography fontWeight="bold">
-            {user?.data?.name || "שם משתמש"}
+            {user?.name || "שם משתמש"}
           </Typography>
         </MenuItem>
 
@@ -41,6 +54,11 @@ export default function UserMenu() {
           <FavoriteIcon sx={{ mr: 1 }} />
           המועדפים שלי
         </MenuItem>
+        <MenuItem onClick={handleLogout}>
+          <LogoutIcon sx={{ mr: 1 }} />
+          התנתקות
+        </MenuItem>
+
       </Menu>
     </>
   );
