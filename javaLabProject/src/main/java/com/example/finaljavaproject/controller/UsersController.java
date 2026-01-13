@@ -1,4 +1,5 @@
 package com.example.finaljavaproject.controller;
+
 import com.example.finaljavaproject.DTO.UsersDTO;
 import com.example.finaljavaproject.model.Users;
 import com.example.finaljavaproject.service.MapStructMapper;
@@ -10,25 +11,31 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("api/users")
-@CrossOrigin
+@CrossOrigin(
+        origins = "http://localhost:5173",
+        allowCredentials = "true"
+)
+
 public class UsersController {
     //המרה למחלקות שונות
     private MapStructMapper mapStructMapper;
     //ניתוב של הפרוייקט הנוכחי
-    private static String DIRECTORY_PATH=System.getProperty("user.dir")+"//Images//";
+    private static String DIRECTORY_PATH = System.getProperty("user.dir") + "//Images//";
 
     @Autowired
-    private  UsersRepository usersRepository;
+    private UsersRepository usersRepository;
 
-    public UsersController(UsersRepository usersRepository,  MapStructMapper mapStructMapper) {
+    public UsersController(UsersRepository usersRepository, MapStructMapper mapStructMapper) {
         this.usersRepository = usersRepository;
         this.mapStructMapper = mapStructMapper;
     }
@@ -39,58 +46,57 @@ public class UsersController {
         if (user == null)
             return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
 
-        return new ResponseEntity<>( user, HttpStatus.OK);
+        return new ResponseEntity<>(user, HttpStatus.OK);
     }
 
     @GetMapping("/getAll")
     public ResponseEntity<List<Users>> getAllUsers() {
-        return new ResponseEntity<>(usersRepository.findAll(),HttpStatus.CREATED);    }
-
+        return new ResponseEntity<>(usersRepository.findAll(), HttpStatus.OK);
+    }
 
     @PutMapping("/updateUsers/{id}")
     public ResponseEntity<Users> updateUsers(@PathVariable long id,
-    @RequestBody Users user)
-                                          {
-        System.out.println(id);
-        Users cheack = usersRepository.findById(id);
-        if (cheack != null) {
-            cheack.setName(user.getName());
-            cheack.setEmail(user.getEmail());
-            cheack.setPassword(user.getPassword());
-
-            Users newUser = usersRepository.save(cheack);
-
-         return new ResponseEntity<>(newUser,HttpStatus.OK);
+                                             @RequestBody Users user) {
+        Optional<Users> checkOpt = usersRepository.findById(id);
+        if (checkOpt.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(null,HttpStatus.CONFLICT);
-
+        Users check = checkOpt.get();
+        check.setName(user.getName());
+        check.setEmail(user.getEmail());
+        if (user.getPassword() != null && !user.getPassword().isEmpty()) {
+            check.setPassword(user.getPassword());
+        }
+        Users newUser = usersRepository.save(check);
+        return new ResponseEntity<>(newUser, HttpStatus.OK);
     }
+
     @DeleteMapping("/deleteUsers/{id}")
     public ResponseEntity deleteUsers(@PathVariable Long id) {
         usersRepository.deleteById(id);
-
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
-    @PostMapping("/logIN")
-    public ResponseEntity<Users> logIN(@RequestBody Users user){
-      Users userFind =usersRepository.findUsersByName(user.getName());
-        if(userFind==null){
-            return new ResponseEntity<>(null,HttpStatus.NOT_FOUND);
+
+    @PostMapping("/login")
+    public ResponseEntity<Users> logIN(@RequestBody Users user) {
+        Users existingUser = usersRepository.findUsersByName(user.getName());
+        if (existingUser == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
-        if(userFind.getPassword().equals(user.getPassword())){
-        return new ResponseEntity<>(userFind,HttpStatus.OK);
+        if (!existingUser.getPassword().equals(user.getPassword())) {
+            return new ResponseEntity<>(HttpStatus.UNAUTHORIZED);
         }
-        return new ResponseEntity<>(HttpStatus.CONFLICT);
+        return new ResponseEntity<>(existingUser, HttpStatus.OK);
     }
 
     @PostMapping("/upload")
-    public ResponseEntity<Users> upload(@RequestPart("users") Users users, @RequestPart("image") MultipartFile file ) throws IOException {
+    public ResponseEntity<Users> upload(@RequestPart("users") Users users, @RequestPart("image") MultipartFile file) throws IOException {
         Path pathImage = Paths.get(DIRECTORY_PATH + file.getOriginalFilename());
         //שמירת התמונה בנתיב
-        Files.write(pathImage,file.getBytes());
+        Files.write(pathImage, file.getBytes());
         //עידכון ניתוב בdata
         users.setImage(pathImage.toString());
-        Users newUser= usersRepository.save(users);
+        Users newUser = usersRepository.save(users);
         return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 
@@ -116,13 +122,12 @@ public class UsersController {
 //    }
 
     @PostMapping("/signup")
-    public ResponseEntity<Users> signup(@RequestBody Users user)  {
-        Users userFind =usersRepository.findUsersByName(user.getName());
-        if(userFind==null) {
-            Users newUser=usersRepository.save(user);
-            return new ResponseEntity<>(newUser,HttpStatus.CREATED);
+    public ResponseEntity<Users> signup(@RequestBody Users user) {
+        Users existingUser = usersRepository.findUsersByName(user.getName());
+        if (existingUser != null) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
         }
-        return new ResponseEntity<>(null, HttpStatus.CONFLICT);
-
+        Users newUser = usersRepository.save(user);
+        return new ResponseEntity<>(newUser, HttpStatus.CREATED);
     }
 }

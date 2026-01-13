@@ -25,10 +25,10 @@ public class BooksDto {
     private String lightOrHeavy;
     private String whyYes;
     private String whyNo;
-    private boolean openOrClose=false;//לכתיבת ספר בהמשכים
-    private Long authorId;//מזהה למשתמש שכותב כרגע פרק
+    private boolean openOrClose=false;//To write a book in series
+    private Long authorId;//ID of the user currently writing a chapter
     private int countScore;
-    private byte[] image;
+    private String image;
     private FavoriteBook favoriteBook;
     private List<Response> responses;
     private List<Chapter> chapters;
@@ -49,11 +49,11 @@ public class BooksDto {
         this.favoriteBook = favoriteBook;
     }
 
-    public byte[] getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(byte[] image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

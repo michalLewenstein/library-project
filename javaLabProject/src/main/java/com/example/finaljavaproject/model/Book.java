@@ -32,13 +32,11 @@ public class Book {
     private String lightOrHeavy;
     private String whyYes;
     private String whyNo;
-    private boolean openOrClose=false;//לכתיבת ספר בהמשכים
-    private Long authorId;//מזהה למשתמש שכותב כרגע פרק
+    private boolean openOrClose=false;//To write a book in series
+    private Long authorId;// לID of the user currently writing a chapter
     private int countScore;
     @Lob
     private String image;
-
-
 
     @JsonIgnore
     @OneToMany(mappedBy = "book")

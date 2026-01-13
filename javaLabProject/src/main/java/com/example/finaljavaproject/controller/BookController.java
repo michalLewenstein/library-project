@@ -20,7 +20,10 @@ import java.util.List;
 
 @RequestMapping("api/book")
 @RestController
-@CrossOrigin
+@CrossOrigin(
+        origins = "http://localhost:5173",
+        allowCredentials = "true"
+)
 public class BookController {
     private BookRepository bookRepository;
     private CategoryRepository categoryRepository;
@@ -45,7 +48,12 @@ public class BookController {
 
     @GetMapping("/getAll")
     public ResponseEntity<List<BooksDto>> getAllBook() throws IOException{
-        return new ResponseEntity<>(mapStructMapper.mapBooks(bookRepository.findAll()), HttpStatus.OK);
+        List<BooksDto> books = bookRepository.findAll()
+                .stream()
+                .map(book -> mapStructMapper.bookToBookDto(book))
+                .toList();
+
+        return new ResponseEntity<>(books, HttpStatus.OK);
     }
 
     @GetMapping("/getBook/{id}")
@@ -61,16 +69,12 @@ public class BookController {
                                                   @RequestPart(value = "image", required = false)
                                                   MultipartFile file ) throws IOException {
         if(file !=null && !file.isEmpty() ) {
-            Path pathImage= Paths.get(DIRECTORY_PATH+file.getOriginalFilename());
-            //שמירת התמונה בנתיב
+            Path pathImage= Paths.get(DIRECTORY_PATH + file.getOriginalFilename());
             Files.write(pathImage,file.getBytes());
-            //עידכון ניתוב בdata
-            book.setImage(DIRECTORY_PATH+file.getOriginalFilename());
+            book.setImage("/images/" +file.getOriginalFilename());
         }
         else {
-            Path pathImage= Paths.get(DIRECTORY_PATH+"//default.png");
-            //נתיב מוחלט
-            book.setImage(pathImage.toString());
+            book.setImage("/images/default.png");
         }
         book.setDateOut(String.valueOf(LocalDate.now()));
         Book newBook = bookRepository.save(book);
@@ -87,15 +91,11 @@ public class BookController {
                                                      MultipartFile file) throws IOException {
         if(file !=null && !file.isEmpty() ) {
             Path pathImage= Paths.get(DIRECTORY_PATH+file.getOriginalFilename());
-            //שמירת התמונה בנתיב
             Files.write(pathImage,file.getBytes());
-            //עידכון ניתוב בdata
-            book.setImage(DIRECTORY_PATH+file.getOriginalFilename());
+            book.setImage(DIRECTORY_PATH + file.getOriginalFilename());
         }
         else {
-            Path pathImage= Paths.get(DIRECTORY_PATH+"//default.png");
-            //נתיב מוחלט
-            book.setImage(pathImage.toString());
+            book.setImage("/images/default.png");
         }
         Category category = categoryRepository.findById(id).get();
         book.setCategory(category);
@@ -145,21 +145,41 @@ public class BookController {
 
     @GetMapping("/getByCategory/{id}")
     public ResponseEntity<List<BooksDto>> getByCategory(@PathVariable Long id) throws IOException {
-        return new ResponseEntity<>(mapStructMapper.mapBooks(bookRepository.findAllByCategory_Id(id))
-                                     , HttpStatus.OK);
+        List<BooksDto> books = bookRepository.findAllByCategory_Id(id)
+                .stream()
+                .map(book -> mapStructMapper.bookToBookDto(book))
+                .toList();
+
+        return new ResponseEntity<>(books, HttpStatus.OK);
+
     }
-    //פונקציית חיפוש לפי שם ספר
+
     @GetMapping("/getAllBySearch/{search}")
-    public ResponseEntity <SearchDTO> getAllBySearch(@PathVariable String search) throws IOException {
-       List<BooksDto> bookListTitle = mapStructMapper.mapBooks(bookRepository.findAllByTitleContains(search));
-       List<BooksDto> bookListAuthor = mapStructMapper.mapBooks(bookRepository.findAllByAuther_NameContains(search));
-       SearchDTO searchList = new SearchDTO();
-       searchList.setBookListTitle(bookListTitle);
-       searchList.setBookListAuthor(bookListAuthor);
-       if(searchList==null)
-           return new ResponseEntity<>(null, HttpStatus.NOT_FOUND);
-       return new ResponseEntity<>(searchList, HttpStatus.OK);
+    public ResponseEntity<SearchDTO> getAllBySearch(@PathVariable String search) {
+
+        List<BooksDto> bookListTitle =
+                bookRepository.findAllByTitleContains(search)
+                        .stream()
+                        .map(book -> mapStructMapper.bookToBookDto(book))
+                        .toList();
+
+        List<BooksDto> bookListAuthor =
+                bookRepository.findAllByAuther_NameContains(search)
+                        .stream()
+                        .map(book -> mapStructMapper.bookToBookDto(book))
+                        .toList();
+
+        if (bookListTitle.isEmpty() && bookListAuthor.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        SearchDTO searchList = new SearchDTO();
+        searchList.setBookListTitle(bookListTitle);
+        searchList.setBookListAuthor(bookListAuthor);
+
+        return new ResponseEntity<>(searchList, HttpStatus.OK);
     }
+
 
     @GetMapping("/getAllChapters/{id}")
     public ResponseEntity<List<Chapter>> getAllChapters(@PathVariable Long id) {

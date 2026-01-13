@@ -12,7 +12,10 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/favoriteBook")
-@CrossOrigin
+@CrossOrigin(
+        origins = "http://localhost:5173",
+        allowCredentials = "true"
+)
 public class FavoriteBookController {
     private FavoriteBookRepository favoriteBookRepository;
 

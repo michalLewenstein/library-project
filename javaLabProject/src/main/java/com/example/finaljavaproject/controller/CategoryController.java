@@ -9,7 +9,10 @@ import java.util.List;
 
 @RequestMapping("api/category")
 @RestController
-@CrossOrigin
+@CrossOrigin(
+        origins = "http://localhost:5173",
+        allowCredentials = "true"
+)
 public class CategoryController {
     private  CategoryRepository categoryRepository;
 

@@ -14,7 +14,10 @@ import java.util.List;
 
 @RequestMapping("api/response")
 @RestController
-@CrossOrigin
+@CrossOrigin(
+        origins = "http://localhost:5173",
+        allowCredentials = "true"
+)
 public class ResponseController {
     private ResponseRepository responseRepository;
     private BookRepository bookRepository;

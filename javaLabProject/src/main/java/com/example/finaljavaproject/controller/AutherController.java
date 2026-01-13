@@ -9,7 +9,10 @@ import java.util.List;
 
 @RequestMapping("api/auther")
 @RestController
-@CrossOrigin
+@CrossOrigin(
+        origins = "http://localhost:5173",
+        allowCredentials = "true"
+)
 public class AutherController {
     private AutherRepository autherRepository;
 

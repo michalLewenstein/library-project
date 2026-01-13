@@ -16,7 +16,10 @@ import java.util.List;
 
 @RequestMapping("api/chapter")
 @RestController
-@CrossOrigin
+@CrossOrigin(
+        origins = "http://localhost:5173",
+        allowCredentials = "true"
+)
 public class ChapterController {
     private ChapterRepository chapterRepository;
     private BookRepository bookRepository;
