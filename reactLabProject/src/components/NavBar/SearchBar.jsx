@@ -1,12 +1,12 @@
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getallbooksbysearch } from "../../slices/bookSlice";
 import { styled, alpha } from "@mui/material/styles";
-import InputBase from '@mui/material/InputBase';
+import InputBase from "@mui/material/InputBase";
 import IconButton from "@mui/material/IconButton";
-import SearchIcon from '@mui/icons-material/Search';
-import CloseIcon from '@mui/icons-material/Close';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { getallbooksbysearch } from '../../slices/bookSlice'
+import SearchIcon from "@mui/icons-material/Search";
+import CloseIcon from "@mui/icons-material/Close";
 
 // Design the main element of the search field
 const Search = styled("div")(({ theme }) => ({

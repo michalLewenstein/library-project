@@ -46,7 +46,7 @@ export default function DailyBook() {
         <CardMedia
           component="img"
           alt={popular?.title}
-          image={`data: image/png; base64, ${popular?.image}`}
+          image={popular?.image}
           onError={(e) => { e.target.onerror = null; e.target.src = '/images/default.png'; }}
           sx={{
             width: { xs: "100%", sm: "40%" },

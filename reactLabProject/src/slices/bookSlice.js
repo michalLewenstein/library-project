@@ -9,7 +9,7 @@ export const getallbooks = createAsyncThunk("book/getallbooks", async () => {
         return books;
     }
     catch (err) {
-        return err;
+        throw err;
     }
 })
 
@@ -20,7 +20,7 @@ export const getbookbyid = createAsyncThunk("book/getbookbyid", async (id) => {
         return books;
     }
     catch (err) {
-        return err;
+        throw err;
     }
 })
 
@@ -31,7 +31,7 @@ export const deletebook = createAsyncThunk("book/deletebook", async (bookId) => 
         return response;
     }
     catch (err) {
-        return err;
+        throw err;
     }
 })
 
@@ -43,7 +43,7 @@ export const getallbooksbysearch = createAsyncThunk("book/getallbooksbysearch",
             return bookList.data;
         }
         catch (err) {
-            return err;
+            throw err;
         }
     })
 
@@ -54,48 +54,50 @@ export const createbookcategoryId = createAsyncThunk("book/createbookcategoryId"
         return response;
     }
     catch (err) {
-        return err;
+        throw err;
     }
 })
 //createbookmanager
-export const createbookmanager = createAsyncThunk("bookManager/createbookmanager", async ({book, urlImage}) => {
+export const createbookmanager = createAsyncThunk("bookManager/createbookmanager", async ({ book, urlImage }) => {
     try {
         const formData = new FormData();
         formData.append(
             'book',
-            
-            new Blob([JSON.stringify(book)], {type: 'application/json'})
+
+            new Blob([JSON.stringify(book)], { type: 'application/json' })
         );
         formData.append('image', urlImage);
         const response = await createBookManager(formData);
         return response;
     }
     catch (err) {
-        return err;
+        throw err;
     }
 })
 
 //updatebook
-export const updatebook = createAsyncThunk("book/updatebook", async (book) => {
-    try {
-        const response = await updateBook(book);
-        return response;
-    }
-    catch (err) {
-        return err;
-    }
-})
+export const updatebook = createAsyncThunk(
+    "book/updatebook", async (book) => {
+        try {
+            const response = await updateBook(book);
+            return response;
+        }
+        catch (err) {
+            throw err;
+        }
+    })
 
 //getallchapters
-export const getallchapters = createAsyncThunk("book/getallchapters", async (id) => {
-    try {
-        const response = await getAllChapters(id);
-        return response;
-    }
-    catch (err) {
-        return err;
-    }
-})
+export const getallchapters = createAsyncThunk(
+    "book/getallchapters", async (id) => {
+        try {
+            const response = await getAllChapters(id);
+            return response.data;
+        }
+        catch (err) {
+            throw err;
+        }
+    })
 
 //getdailybook
 export const getdailybook = createAsyncThunk("book/getdailybook", async () => {
@@ -103,7 +105,7 @@ export const getdailybook = createAsyncThunk("book/getdailybook", async () => {
         return await getDdailyBook();
     }
     catch (err) {
-        return err;
+        throw err;
     }
 })
 
@@ -112,7 +114,10 @@ const initialState = {
     selectedBook: null,
     loading: false,
     error: null,
-    bookListSearch: [],
+    bookListSearch: {
+        bookListTitle: [],
+        bookListAuthor: []
+    },
     book: null,
     chapters: [],
     bookManager: null,
@@ -130,23 +135,28 @@ export const bookSlice = createSlice({
         removeBookFromList: (state, action) => {
             const bookId = action.payload;
             state.bookListSearch.bookListTitle = state.bookListSearch.bookListTitle.filter(
-              (book) => book.id !== bookId
+                (book) => book.id !== bookId
             );
             state.bookListSearch.bookListAuthor = state.bookListSearch.bookListAuthor.filter(
-              (book) => book.id !== bookId
+                (book) => book.id !== bookId
             );
-          },
+        },
     },
     extraReducers: (builder) => {
         builder
             //getallbooks
             .addCase(getallbooks.fulfilled, (state, action) => {
+                state.loading = false;
                 state.booksList = action.payload;
             })
+            .addCase(getallbooks.pending, (state) => {
+                state.loading = true;
+            })
             .addCase(getallbooks.rejected, (state, action) => {
+                state.loading = false;
                 state.error = action.error.message;
             })
-            //            getallbooksbysearch
+            //getallbooksbysearch
             .addCase(getallbooksbysearch.fulfilled, (state, action) => {
                 state.bookListSearch = action.payload;
 
@@ -200,7 +210,7 @@ export const bookSlice = createSlice({
             })
             .addCase(deletebook.rejected, (state, action) => {
                 state.loading = false;
-                state.message = action.payload;
+                state.error = action.payload;
             })
             //getbookbyid
             .addCase(getbookbyid.fulfilled, (state, action) => {
@@ -224,6 +234,6 @@ export const bookSlice = createSlice({
             })
     }
 })
-export const { setSelectedBook , removeBookFromList} = bookSlice.actions
+export const { setSelectedBook, removeBookFromList } = bookSlice.actions
 export default bookSlice.reducer
 

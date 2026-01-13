@@ -132,7 +132,7 @@ export default function Book() {
             component="img"
             alt={book.title}
             height="200"
-            src={`data: image/png; base64, ${book?.image}`}
+            src={book?.image}
             sx={{ objectFit: 'cover', borderRadius: '8px' }}
           />
         </Box>

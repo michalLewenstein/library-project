@@ -3,34 +3,35 @@ import { logInUser, updateUser } from '../services/userServices'
 
 //login
 export const login = createAsyncThunk(
-  "user/login", 
+  "user/login",
   async (newUser, { rejectWithValue }) => {
-  try {
-    const userData = await logInUser(newUser);
-    localStorage.setItem("user", JSON.stringify(userData));
-    return userData;
-  }
-  catch (err) {
-    return rejectWithValue(
-      err.response?.data?.message || "שגיאת התחברות");
-  }
-})
+    try {
+      const userData = await logInUser(newUser);
+      localStorage.setItem("user", JSON.stringify(userData));
+      return userData;
+    }
+    catch (err) {
+      return rejectWithValue(
+        err.response?.data?.message || "שגיאת התחברות");
+    }
+  })
 
 //updateUser
 export const update = createAsyncThunk(
   "user/update",
-   async (newUser, { rejectWithValue }) => {
-  try {
-    return await updateUser(newUser);
-  }
-  catch (err) {
-    return rejectWithValue(err.response?.data || "שגיאה בעדכון משתמש");
-  }
-})
+  async (newUser, { rejectWithValue }) => {
+    try {
+      return await updateUser(newUser);
+    }
+    catch (err) {
+      return rejectWithValue(err.response?.data || "שגיאה בעדכון משתמש");
+    }
+  })
 
 const initialState = {
   user: null,
   isConnected: false,
+  isAuthChecked: false,
   loading: false,
   error: null
 }
@@ -46,8 +47,14 @@ export const userSlice = createSlice({
       localStorage.removeItem("user");
     },
     setUserFromStorage: (state, action) => {
-      state.user = action.payload;
-      state.isConnected = true;
+      if (action.payload) {
+        state.user = action.payload;
+        state.isConnected = true;
+      } else {
+        state.user = null;
+        state.isConnected = false;
+      }
+      state.isAuthChecked = true;
     }
   },
   extraReducers: (builder) => {

@@ -70,7 +70,7 @@ export default function Search() {
   );
 }
 
-// קומפוננטה נפרדת לכרטיס ספר
+// Separate component for a book card
 function BookCard({ book, handleBook, handleDeleteBook, user }) {
   return (
     <Card
@@ -92,7 +92,7 @@ function BookCard({ book, handleBook, handleDeleteBook, user }) {
         component="img"
         alt={book.title}
         height="200"
-        image={`data: image/png; base64, ${book?.image}`}
+        image={book?.image}
         sx={{ objectFit: "cover" }}
       />
       <CardContent

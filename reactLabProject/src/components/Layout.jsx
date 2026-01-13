@@ -6,8 +6,11 @@ import { Toolbar } from "@mui/material";
 import "../styles/Layout.css"
 
 export default function Layout() {
-    const isConnected = useSelector((state) => state.user.isConnected);
+    const {isConnected, isAuthChecked}  = useSelector((state) => state.user);
 
+    if (!isAuthChecked) {
+        return null;
+    }
     if (!isConnected) {
         return <Navigate to="/Login" replace />;
     }

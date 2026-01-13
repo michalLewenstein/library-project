@@ -52,10 +52,14 @@ function App() {
 
   useEffect(() => {
     const savedUser = localStorage.getItem("user");
+
     if (savedUser) {
       dispatch(setUserFromStorage(JSON.parse(savedUser)));
+    } else {
+      dispatch(setUserFromStorage(null)); 
     }
   }, [dispatch]);
+
 
   return (
     <RouterProvider router={router} />

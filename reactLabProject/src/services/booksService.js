@@ -1,15 +1,9 @@
-import axios from "axios";
+import axiosInstance from "./api";
 
-const axiosInstance=axios.create(
-{
-    withCredentials:true
-}
-)
 //getallbooks
-
 export const getAllBooks = async () => {
     try {
-        const response = await axios.get('http://localhost:8080/api/book/getAll');
+        const response = await axiosInstance.get('/book/getAll');
         return  response.data;
     }
     catch (err) {
@@ -18,10 +12,9 @@ export const getAllBooks = async () => {
 }
 
 //getAllBySearch
-
 export const getAllBySearch = async (search) =>{
     try{
-        const response = await axios.get(`http://localhost:8080/api/book/getAllBySearch/${search}`);
+        const response = await axiosInstance.get(`/book/getAllBySearch/${search}`);
         return response;
     }
     catch(err){
@@ -30,10 +23,9 @@ export const getAllBySearch = async (search) =>{
 }
 
 //createBookCategoryId
-
 export const createBookCategoryId = async (send)=>{
     try{
-        const response = await axios.post(`http://localhost:8080/api/book/createBookCategoryId/${send.categoryId}`,send.newBook);
+        const response = await axiosInstance.post(`/book/createBookCategoryId/${send.categoryId}`,send.newBook);
         return response.data;
     }
     catch(err){
@@ -41,10 +33,9 @@ export const createBookCategoryId = async (send)=>{
     }
 }
 //createBookManager
-
 export const createBookManager = async (data)=>{
     try{
-        const response = await axios.post('http://localhost:8080/api/book/createBookManager',data,{
+        const response = await axiosInstance.post('/book/createBookManager',data,{
             headers: {
                 'Content-Type' : 'multipart/form-data'
             }
@@ -56,10 +47,9 @@ export const createBookManager = async (data)=>{
     }
 }
 //updateBook
-
 export const updateBook = async (book) =>{
     try{
-        return await axios.put(`http://localhost:8080/api/book/updateBook/${book.id}`, book);
+        return await axiosInstance.put(`/book/updateBook/${book.id}`, book);
     }
     catch(err){
         throw err;
@@ -69,7 +59,7 @@ export const updateBook = async (book) =>{
 //getAllChapters
 export const getAllChapters = async(id) =>{
     try{
-        const response = await axios.get(`http://localhost:8080/api/book/getAllChapters/${id}`);
+        const response = await axiosInstance.get(`/book/getAllChapters/${id}`);
         return response;
     }
     catch(err){
@@ -77,11 +67,10 @@ export const getAllChapters = async(id) =>{
     }
 }
 
-
 //getBookById
 export const getBookById = async(id) =>{
     try{
-        const response = await axios.get(`http://localhost:8080/api/book/getBook/${id}`);
+        const response = await axiosInstance.get(`/book/getBook/${id}`);
         return response.data;
     }
     catch(err){
@@ -92,7 +81,7 @@ export const getBookById = async(id) =>{
 //deleteBook
 export const deleteBook = async(id)=>{
     try{
-        const response = await axios.delete(`http://localhost:8080/api/book/deleteBook/${id}`);
+        const response = await axiosInstance.delete(`/book/deleteBook/${id}`);
         return response;
     }
     catch(err){
@@ -103,7 +92,7 @@ export const deleteBook = async(id)=>{
 //getDailyBook
 export const getDdailyBook = async()=>{
     try{
-        const response = await axios.get('http://localhost:8080/api/book/getDailyBook');
+        const response = await axiosInstance.get('/book/getDailyBook');
         return response.data;
     }
     catch(err){
